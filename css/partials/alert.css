@@ -1,0 +1,74 @@
+/* Estilo para el mensaje de alerta */
+.alert {
+    position: fixed;
+    top: -100px; /* Comienza fuera de la pantalla */
+    right: 20px;
+    width: 50%;
+    max-width: 300px;
+    z-index: 9999;
+    transition: top 0.5s ease-out, opacity 0.5s ease-out;
+    opacity: 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.alert.show {
+    top: 95px;  /* Se desliza hacia abajo */
+    opacity: 1; /* Aparece gradualmente */
+}
+
+
+.alert.hide {
+    top: -100px;
+    opacity: 0;
+}
+
+/* Estilo para la barra de progreso */
+.progress {
+    height: 5px;
+    background-color: #f1f1f1;
+    margin-top: 10px;
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 100%;  /* Inicia en 100% */
+    transition: width 5s linear;  /* Transición suave */
+    will-change: width;
+}
+
+/* Colores según el tipo de alerta */
+.alert-success .progress-bar {
+    background-color: #28a745;
+}
+
+.alert-danger .progress-bar {
+    background-color: #dc3545;
+}
+
+.alert-warning .progress-bar {
+    background-color: #ffc107;
+}
+/* Botón de cierre de alerta */
+.alert .close-btn {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+    transition: color 0.3s ease;
+    border-radius: 4px;
+}
+
+.alert .close-btn:hover {
+    color: #000;
+    background-color: rgba(0, 0, 0, 0.05);
+}
