@@ -1,0 +1,41 @@
+INFO - 2025-07-30 12:57:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-30 12:58:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-30 12:58:00 --> Usuario autenticado con role_id: 
+INFO - 2025-07-30 12:58:12 --> El método authenticate fue llamado
+INFO - 2025-07-30 12:58:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-30 12:58:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-30 12:58:14 --> Usuario autenticado con role_id: 
+INFO - 2025-07-30 12:58:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-30 12:58:18 --> Usuario autenticado con role_id: 
+INFO - 2025-07-30 12:58:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-30 12:58:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-30 12:58:25 --> Usuario autenticado con role_id: 
+INFO - 2025-07-30 12:59:02 --> Configuración SMTP obtenida: Array
+(
+    [config_key] => smtp_config
+    [config_value] => {"host":"smtp.gmail.com","username":"letrasylyrics48@gmail.com","port":"465","smtp_password":" tafi ljrp cmpz wbem","security":"ssl"}
+    [description] => Servidor SMTP
+    [created_at] => 2025-07-20 20:54:16
+    [updated_at] => 2025-07-20 20:54:16
+    [id_config] => 1
+)
+
+INFO - 2025-07-30 12:59:02 --> Configuración SMTP obtenida en librari: Array
+(
+    [host] => smtp.gmail.com
+    [username] => letrasylyrics48@gmail.com
+    [port] => 465
+    [smtp_password] =>  tafi ljrp cmpz wbem
+    [security] => ssl
+)
+
+INFO - 2025-07-30 12:59:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-30 12:59:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-30 12:59:05 --> Usuario autenticado con role_id: 
+INFO - 2025-07-30 12:59:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-30 12:59:22 --> Usuario autenticado con role_id: 
+INFO - 2025-07-30 12:59:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-30 12:59:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-30 12:59:38 --> Usuario autenticado con role_id: 
+INFO - 2025-07-30 13:19:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-30 13:19:32 --> Usuario autenticado con role_id: 

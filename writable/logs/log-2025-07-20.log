@@ -1,0 +1,1243 @@
+INFO - 2025-07-20 22:14:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:14:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:14:46 --> Archivo subido: 1753067686_0332be538fb1f314ed82.png
+INFO - 2025-07-20 22:14:46 --> Configuración SMTP obtenida: Array
+(
+    [config_key] => smtp_config
+    [config_value] => {"host":"smtp.gmail.com","username":"letrasylyrics48@gmail.com","port":"465","smtp_password":" tafi ljrp cmpz wbem","security":"ssl"}
+    [description] => Servidor SMTP
+    [created_at] => 2025-07-20 20:54:16
+    [updated_at] => 2025-07-20 20:54:16
+    [id_config] => 1
+)
+
+INFO - 2025-07-20 22:14:46 --> Configuración SMTP obtenida en librari: Array
+(
+    [host] => smtp.gmail.com
+    [username] => letrasylyrics48@gmail.com
+    [port] => 465
+    [smtp_password] =>  tafi ljrp cmpz wbem
+    [security] => ssl
+)
+
+INFO - 2025-07-20 22:14:49 --> Consulta INSERT ejecutada: SELECT *
+FROM `configuration`
+WHERE `config_key` = 'smtp_config'
+ LIMIT 1
+INFO - 2025-07-20 22:14:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:16:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:16:08 --> Usuario autenticado con role_id: 2
+INFO - 2025-07-20 22:16:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:16:08 --> Usuario autenticado con role_id: 2
+INFO - 2025-07-20 22:16:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:16:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:16:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:16:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:16:12 --> Usuario autenticado con role_id: 
+INFO - 2025-07-20 22:16:14 --> El método authenticate fue llamado
+INFO - 2025-07-20 22:16:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:16:14 --> Usuario autenticado con ID: 1, Nombre: JUAN PÉREZ
+INFO - 2025-07-20 22:16:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:17:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:17:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:17:40 --> Datos recogidos de LA BASE DE DATOS: {"users":[{"agreement":null,"number":null,"letter":null,"date_from":null,"date_to":null,"policy":null,"approved_by":null,"approved_date":null,"id_user":"2","name":"ANA","last_name":"L\u00d3PEZ","identification":"987654321","email":"ana@example.com","phone":null,"address":null,"trust":null,"email_del_trust":null,"telephone_del_trust":null,"profile_image":null,"bank":null,"swift":null,"aba":null,"iban":null,"account":null,"password_hash":"$2y$10$xdHFXhYoOaUbqjip72qvj.3489G7unuXyD7gHL\/XTwcUsDTFyMj6G","date_registration":"2025-07-20 20:54:16","login_attempts":"0","last_login_attempt":null,"status":"active","role_id":"2","balance":"0.00","principal":"5000.00","rate":"3.50","compoundingPeriods":"2","time":"6","role_name":"CLIENT"},{"agreement":"","number":"0","letter":"","date_from":"0000-00-00","date_to":"0000-00-00","policy":"","approved_by":"","approved_date":"0000-00-00","id_user":"3","name":"MARVIN","last_name":"PEREZ","identification":"1111111","email":"marvinamazon730@gmail.com","phone":"3132311084","address":"KDX 286-300 AV CIRCUNVALAR FRENTE A LA CANCHA DE TIERRA","trust":"QWERFQWEF","email_del_trust":"marvineduardosantosperez@gmail.com","telephone_del_trust":"3132311084","profile_image":null,"bank":"","swift":"","aba":"","iban":"","account":"","password_hash":"$2y$10$v7DS8NpsIK7nFsZK3GrReeRnF.wGSPo\/LCT430K6jNwrmT2QOKKkG","date_registration":"2025-07-20 20:58:02","login_attempts":"0","last_login_attempt":null,"status":"active","role_id":"2","balance":"2207.60","principal":"2000.00","rate":"0.05","compoundingPeriods":"2","time":"2","role_name":"CLIENT"},{"agreement":"","number":"0","letter":"","date_from":"0000-00-00","date_to":"0000-00-00","policy":"","approved_by":"","approved_date":"0000-00-00","id_user":"4","name":"MARVIN","last_name":"PEREZ","identification":"1111111444","email":"marvineduardosantosperez@gmail.com","phone":"3132311084","address":"KDX 286-300 AV CIRCUNVALAR","trust":"WEFASDF","email_del_trust":"marvin.santos@soy.sena.edu.co","telephone_del_trust":"3132311084","profile_image":null,"bank":"","swift":"","aba":"","iban":"","account":"","password_hash":"$2y$10$7vSrIerSadRrT7HBoLg79elpc8XPvnBa5c75Y7uf4CpPWhraYzgcy","date_registration":"2025-07-20 21:01:15","login_attempts":"0","last_login_attempt":"2025-07-20 21:09:45","status":"active","role_id":"2","balance":"5379.60","principal":"4000.00","rate":"0.05","compoundingPeriods":"2","time":"6","role_name":"CLIENT"}],"roles":[{"role_name":"ADMIN","role_description":"ADMINISTRADOR CON ACCESO COMPLETO","created_at":"2025-07-20 20:54:16","id_role":"1"},{"role_name":"CLIENT","role_description":"USUARIO CON PERMISOS DE EDICI\u00d3N","created_at":"2025-07-20 20:54:16","id_role":"2"}]}
+INFO - 2025-07-20 22:17:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:17:46 --> Datos recogidos de LA BASE DE DATOS: {"users":[{"agreement":null,"number":null,"letter":null,"date_from":null,"date_to":null,"policy":null,"approved_by":null,"approved_date":null,"id_user":"2","name":"ANA","last_name":"L\u00d3PEZ","identification":"987654321","email":"ana@example.com","phone":null,"address":null,"trust":null,"email_del_trust":null,"telephone_del_trust":null,"profile_image":null,"bank":null,"swift":null,"aba":null,"iban":null,"account":null,"password_hash":"$2y$10$xdHFXhYoOaUbqjip72qvj.3489G7unuXyD7gHL\/XTwcUsDTFyMj6G","date_registration":"2025-07-20 20:54:16","login_attempts":"0","last_login_attempt":null,"status":"active","role_id":"2","balance":"0.00","principal":"5000.00","rate":"3.50","compoundingPeriods":"2","time":"6","role_name":"CLIENT"},{"agreement":"","number":"0","letter":"","date_from":"0000-00-00","date_to":"0000-00-00","policy":"","approved_by":"","approved_date":"0000-00-00","id_user":"3","name":"MARVIN","last_name":"PEREZ","identification":"1111111","email":"marvinamazon730@gmail.com","phone":"3132311084","address":"KDX 286-300 AV CIRCUNVALAR FRENTE A LA CANCHA DE TIERRA","trust":"QWERFQWEF","email_del_trust":"marvineduardosantosperez@gmail.com","telephone_del_trust":"3132311084","profile_image":null,"bank":"","swift":"","aba":"","iban":"","account":"","password_hash":"$2y$10$v7DS8NpsIK7nFsZK3GrReeRnF.wGSPo\/LCT430K6jNwrmT2QOKKkG","date_registration":"2025-07-20 20:58:02","login_attempts":"0","last_login_attempt":null,"status":"active","role_id":"2","balance":"2207.60","principal":"2000.00","rate":"0.05","compoundingPeriods":"2","time":"2","role_name":"CLIENT"},{"agreement":"","number":"0","letter":"","date_from":"0000-00-00","date_to":"0000-00-00","policy":"","approved_by":"","approved_date":"0000-00-00","id_user":"4","name":"MARVIN","last_name":"PEREZ","identification":"1111111444","email":"marvineduardosantosperez@gmail.com","phone":"3132311084","address":"KDX 286-300 AV CIRCUNVALAR","trust":"WEFASDF","email_del_trust":"marvin.santos@soy.sena.edu.co","telephone_del_trust":"3132311084","profile_image":null,"bank":"","swift":"","aba":"","iban":"","account":"","password_hash":"$2y$10$7vSrIerSadRrT7HBoLg79elpc8XPvnBa5c75Y7uf4CpPWhraYzgcy","date_registration":"2025-07-20 21:01:15","login_attempts":"0","last_login_attempt":"2025-07-20 21:09:45","status":"active","role_id":"2","balance":"5379.60","principal":"4000.00","rate":"0.05","compoundingPeriods":"2","time":"6","role_name":"CLIENT"}],"roles":[{"role_name":"ADMIN","role_description":"ADMINISTRADOR CON ACCESO COMPLETO","created_at":"2025-07-20 20:54:16","id_role":"1"},{"role_name":"CLIENT","role_description":"USUARIO CON PERMISOS DE EDICI\u00d3N","created_at":"2025-07-20 20:54:16","id_role":"2"}]}
+INFO - 2025-07-20 22:17:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:17:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:17:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:17:54 --> Starting user search...
+INFO - 2025-07-20 22:17:54 --> Received identification: 2354235423
+ERROR - 2025-07-20 22:17:54 --> User not found with identification: 2354235423
+INFO - 2025-07-20 22:17:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:17:57 --> Datos recogidos de LA BASE DE DATOS: {"users":[{"agreement":null,"number":null,"letter":null,"date_from":null,"date_to":null,"policy":null,"approved_by":null,"approved_date":null,"id_user":"2","name":"ANA","last_name":"L\u00d3PEZ","identification":"987654321","email":"ana@example.com","phone":null,"address":null,"trust":null,"email_del_trust":null,"telephone_del_trust":null,"profile_image":null,"bank":null,"swift":null,"aba":null,"iban":null,"account":null,"password_hash":"$2y$10$xdHFXhYoOaUbqjip72qvj.3489G7unuXyD7gHL\/XTwcUsDTFyMj6G","date_registration":"2025-07-20 20:54:16","login_attempts":"0","last_login_attempt":null,"status":"active","role_id":"2","balance":"0.00","principal":"5000.00","rate":"3.50","compoundingPeriods":"2","time":"6","role_name":"CLIENT"},{"agreement":"","number":"0","letter":"","date_from":"0000-00-00","date_to":"0000-00-00","policy":"","approved_by":"","approved_date":"0000-00-00","id_user":"3","name":"MARVIN","last_name":"PEREZ","identification":"1111111","email":"marvinamazon730@gmail.com","phone":"3132311084","address":"KDX 286-300 AV CIRCUNVALAR FRENTE A LA CANCHA DE TIERRA","trust":"QWERFQWEF","email_del_trust":"marvineduardosantosperez@gmail.com","telephone_del_trust":"3132311084","profile_image":null,"bank":"","swift":"","aba":"","iban":"","account":"","password_hash":"$2y$10$v7DS8NpsIK7nFsZK3GrReeRnF.wGSPo\/LCT430K6jNwrmT2QOKKkG","date_registration":"2025-07-20 20:58:02","login_attempts":"0","last_login_attempt":null,"status":"active","role_id":"2","balance":"2207.60","principal":"2000.00","rate":"0.05","compoundingPeriods":"2","time":"2","role_name":"CLIENT"},{"agreement":"","number":"0","letter":"","date_from":"0000-00-00","date_to":"0000-00-00","policy":"","approved_by":"","approved_date":"0000-00-00","id_user":"4","name":"MARVIN","last_name":"PEREZ","identification":"1111111444","email":"marvineduardosantosperez@gmail.com","phone":"3132311084","address":"KDX 286-300 AV CIRCUNVALAR","trust":"WEFASDF","email_del_trust":"marvin.santos@soy.sena.edu.co","telephone_del_trust":"3132311084","profile_image":null,"bank":"","swift":"","aba":"","iban":"","account":"","password_hash":"$2y$10$7vSrIerSadRrT7HBoLg79elpc8XPvnBa5c75Y7uf4CpPWhraYzgcy","date_registration":"2025-07-20 21:01:15","login_attempts":"0","last_login_attempt":"2025-07-20 21:09:45","status":"active","role_id":"2","balance":"5379.60","principal":"4000.00","rate":"0.05","compoundingPeriods":"2","time":"6","role_name":"CLIENT"}],"roles":[{"role_name":"ADMIN","role_description":"ADMINISTRADOR CON ACCESO COMPLETO","created_at":"2025-07-20 20:54:16","id_role":"1"},{"role_name":"CLIENT","role_description":"USUARIO CON PERMISOS DE EDICI\u00d3N","created_at":"2025-07-20 20:54:16","id_role":"2"}]}
+INFO - 2025-07-20 22:18:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:18:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:18:03 --> Starting user search...
+INFO - 2025-07-20 22:18:03 --> Received identification: 987654321
+INFO - 2025-07-20 22:18:03 --> User found: {"agreement":null,"number":null,"letter":null,"date_from":null,"date_to":null,"policy":null,"approved_by":null,"approved_date":null,"name":"ANA","last_name":"L\u00d3PEZ","identification":"987654321","email":"ana@example.com","phone":null,"address":null,"trust":null,"email_del_trust":null,"telephone_del_trust":null,"profile_image":null,"bank":null,"swift":null,"aba":null,"iban":null,"account":null,"password_hash":"$2y$10$xdHFXhYoOaUbqjip72qvj.3489G7unuXyD7gHL\/XTwcUsDTFyMj6G","date_registration":"2025-07-20 20:54:16","login_attempts":"0","last_login_attempt":null,"status":"active","role_id":"2","reset_token":null,"reset_token_expiration":null,"balance":"0.00","principal":"5000.00","rate":"3.50","compoundingPeriods":"2","time":"6","id_user":"2"}
+INFO - 2025-07-20 22:18:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-20 22:18:06 --> No transactions found for user ID: 2
+INFO - 2025-07-20 22:18:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-20 22:18:10 --> No transactions found for user ID: 2
+INFO - 2025-07-20 22:18:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-20 22:18:35 --> No transactions found for user ID: 2
+INFO - 2025-07-20 22:18:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:18:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:18:39 --> Starting user search...
+INFO - 2025-07-20 22:18:39 --> Received identification: 987654321
+INFO - 2025-07-20 22:18:39 --> User found: {"agreement":null,"number":null,"letter":null,"date_from":null,"date_to":null,"policy":null,"approved_by":null,"approved_date":null,"name":"ANA","last_name":"L\u00d3PEZ","identification":"987654321","email":"ana@example.com","phone":null,"address":null,"trust":null,"email_del_trust":null,"telephone_del_trust":null,"profile_image":null,"bank":null,"swift":null,"aba":null,"iban":null,"account":null,"password_hash":"$2y$10$xdHFXhYoOaUbqjip72qvj.3489G7unuXyD7gHL\/XTwcUsDTFyMj6G","date_registration":"2025-07-20 20:54:16","login_attempts":"0","last_login_attempt":null,"status":"active","role_id":"2","reset_token":null,"reset_token_expiration":null,"balance":"0.00","principal":"5000.00","rate":"3.50","compoundingPeriods":"2","time":"6","id_user":"2"}
+INFO - 2025-07-20 22:18:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:18:47 --> Datos recogidos de LA BASE DE DATOS: {"users":[{"agreement":null,"number":null,"letter":null,"date_from":null,"date_to":null,"policy":null,"approved_by":null,"approved_date":null,"id_user":"2","name":"ANA","last_name":"L\u00d3PEZ","identification":"987654321","email":"ana@example.com","phone":null,"address":null,"trust":null,"email_del_trust":null,"telephone_del_trust":null,"profile_image":null,"bank":null,"swift":null,"aba":null,"iban":null,"account":null,"password_hash":"$2y$10$xdHFXhYoOaUbqjip72qvj.3489G7unuXyD7gHL\/XTwcUsDTFyMj6G","date_registration":"2025-07-20 20:54:16","login_attempts":"0","last_login_attempt":null,"status":"active","role_id":"2","balance":"0.00","principal":"5000.00","rate":"3.50","compoundingPeriods":"2","time":"6","role_name":"CLIENT"},{"agreement":"","number":"0","letter":"","date_from":"0000-00-00","date_to":"0000-00-00","policy":"","approved_by":"","approved_date":"0000-00-00","id_user":"3","name":"MARVIN","last_name":"PEREZ","identification":"1111111","email":"marvinamazon730@gmail.com","phone":"3132311084","address":"KDX 286-300 AV CIRCUNVALAR FRENTE A LA CANCHA DE TIERRA","trust":"QWERFQWEF","email_del_trust":"marvineduardosantosperez@gmail.com","telephone_del_trust":"3132311084","profile_image":null,"bank":"","swift":"","aba":"","iban":"","account":"","password_hash":"$2y$10$v7DS8NpsIK7nFsZK3GrReeRnF.wGSPo\/LCT430K6jNwrmT2QOKKkG","date_registration":"2025-07-20 20:58:02","login_attempts":"0","last_login_attempt":null,"status":"active","role_id":"2","balance":"2207.60","principal":"2000.00","rate":"0.05","compoundingPeriods":"2","time":"2","role_name":"CLIENT"},{"agreement":"","number":"0","letter":"","date_from":"0000-00-00","date_to":"0000-00-00","policy":"","approved_by":"","approved_date":"0000-00-00","id_user":"4","name":"MARVIN","last_name":"PEREZ","identification":"1111111444","email":"marvineduardosantosperez@gmail.com","phone":"3132311084","address":"KDX 286-300 AV CIRCUNVALAR","trust":"WEFASDF","email_del_trust":"marvin.santos@soy.sena.edu.co","telephone_del_trust":"3132311084","profile_image":null,"bank":"","swift":"","aba":"","iban":"","account":"","password_hash":"$2y$10$7vSrIerSadRrT7HBoLg79elpc8XPvnBa5c75Y7uf4CpPWhraYzgcy","date_registration":"2025-07-20 21:01:15","login_attempts":"0","last_login_attempt":"2025-07-20 21:09:45","status":"active","role_id":"2","balance":"5379.60","principal":"4000.00","rate":"0.05","compoundingPeriods":"2","time":"6","role_name":"CLIENT"}],"roles":[{"role_name":"ADMIN","role_description":"ADMINISTRADOR CON ACCESO COMPLETO","created_at":"2025-07-20 20:54:16","id_role":"1"},{"role_name":"CLIENT","role_description":"USUARIO CON PERMISOS DE EDICI\u00d3N","created_at":"2025-07-20 20:54:16","id_role":"2"}]}
+INFO - 2025-07-20 22:18:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:18:53 --> Datos recogidos de LA BASE DE DATOS: {"users":[{"agreement":null,"number":null,"letter":null,"date_from":null,"date_to":null,"policy":null,"approved_by":null,"approved_date":null,"id_user":"2","name":"ANA","last_name":"L\u00d3PEZ","identification":"987654321","email":"ana@example.com","phone":null,"address":null,"trust":null,"email_del_trust":null,"telephone_del_trust":null,"profile_image":null,"bank":null,"swift":null,"aba":null,"iban":null,"account":null,"password_hash":"$2y$10$xdHFXhYoOaUbqjip72qvj.3489G7unuXyD7gHL\/XTwcUsDTFyMj6G","date_registration":"2025-07-20 20:54:16","login_attempts":"0","last_login_attempt":null,"status":"active","role_id":"2","balance":"0.00","principal":"5000.00","rate":"3.50","compoundingPeriods":"2","time":"6","role_name":"CLIENT"},{"agreement":"","number":"0","letter":"","date_from":"0000-00-00","date_to":"0000-00-00","policy":"","approved_by":"","approved_date":"0000-00-00","id_user":"3","name":"MARVIN","last_name":"PEREZ","identification":"1111111","email":"marvinamazon730@gmail.com","phone":"3132311084","address":"KDX 286-300 AV CIRCUNVALAR FRENTE A LA CANCHA DE TIERRA","trust":"QWERFQWEF","email_del_trust":"marvineduardosantosperez@gmail.com","telephone_del_trust":"3132311084","profile_image":null,"bank":"","swift":"","aba":"","iban":"","account":"","password_hash":"$2y$10$v7DS8NpsIK7nFsZK3GrReeRnF.wGSPo\/LCT430K6jNwrmT2QOKKkG","date_registration":"2025-07-20 20:58:02","login_attempts":"0","last_login_attempt":null,"status":"active","role_id":"2","balance":"2207.60","principal":"2000.00","rate":"0.05","compoundingPeriods":"2","time":"2","role_name":"CLIENT"},{"agreement":"","number":"0","letter":"","date_from":"0000-00-00","date_to":"0000-00-00","policy":"","approved_by":"","approved_date":"0000-00-00","id_user":"4","name":"MARVIN","last_name":"PEREZ","identification":"1111111444","email":"marvineduardosantosperez@gmail.com","phone":"3132311084","address":"KDX 286-300 AV CIRCUNVALAR","trust":"WEFASDF","email_del_trust":"marvin.santos@soy.sena.edu.co","telephone_del_trust":"3132311084","profile_image":null,"bank":"","swift":"","aba":"","iban":"","account":"","password_hash":"$2y$10$7vSrIerSadRrT7HBoLg79elpc8XPvnBa5c75Y7uf4CpPWhraYzgcy","date_registration":"2025-07-20 21:01:15","login_attempts":"0","last_login_attempt":"2025-07-20 21:09:45","status":"active","role_id":"2","balance":"5379.60","principal":"4000.00","rate":"0.05","compoundingPeriods":"2","time":"6","role_name":"CLIENT"}],"roles":[{"role_name":"ADMIN","role_description":"ADMINISTRADOR CON ACCESO COMPLETO","created_at":"2025-07-20 20:54:16","id_role":"1"},{"role_name":"CLIENT","role_description":"USUARIO CON PERMISOS DE EDICI\u00d3N","created_at":"2025-07-20 20:54:16","id_role":"2"}]}
+INFO - 2025-07-20 22:18:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:18:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:18:58 --> Starting user search...
+INFO - 2025-07-20 22:18:58 --> Received identification: 1111111444
+INFO - 2025-07-20 22:18:59 --> User found: {"agreement":"","number":"0","letter":"","date_from":"0000-00-00","date_to":"0000-00-00","policy":"","approved_by":"","approved_date":"0000-00-00","name":"MARVIN","last_name":"PEREZ","identification":"1111111444","email":"marvineduardosantosperez@gmail.com","phone":"3132311084","address":"KDX 286-300 AV CIRCUNVALAR","trust":"WEFASDF","email_del_trust":"marvin.santos@soy.sena.edu.co","telephone_del_trust":"3132311084","profile_image":null,"bank":"","swift":"","aba":"","iban":"","account":"","password_hash":"$2y$10$7vSrIerSadRrT7HBoLg79elpc8XPvnBa5c75Y7uf4CpPWhraYzgcy","date_registration":"2025-07-20 21:01:15","login_attempts":"0","last_login_attempt":"2025-07-20 21:09:45","status":"active","role_id":"2","reset_token":null,"reset_token_expiration":null,"balance":"5379.60","principal":"4000.00","rate":"0.05","compoundingPeriods":"2","time":"6","id_user":"4"}
+INFO - 2025-07-20 22:19:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:19:01 --> Transaction history: [
+    {
+        "name": "MARVIN",
+        "last_name": "PEREZ",
+        "email": "marvineduardosantosperez@gmail.com",
+        "phone": "3132311084",
+        "amount": "5379.60",
+        "transaction_type": "loan",
+        "transaction_date": "2025-07-20 21:01:15"
+    }
+]
+INFO - 2025-07-20 22:19:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:19:07 --> Transaction history: [
+    {
+        "name": "MARVIN",
+        "last_name": "PEREZ",
+        "email": "marvineduardosantosperez@gmail.com",
+        "phone": "3132311084",
+        "amount": "5379.60",
+        "transaction_type": "loan",
+        "transaction_date": "2025-07-20 21:01:15"
+    }
+]
+INFO - 2025-07-20 22:19:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:19:38 --> Transaction history: [
+    {
+        "name": "MARVIN",
+        "last_name": "PEREZ",
+        "email": "marvineduardosantosperez@gmail.com",
+        "phone": "3132311084",
+        "amount": "5379.60",
+        "transaction_type": "loan",
+        "transaction_date": "2025-07-20 21:01:15"
+    }
+]
+INFO - 2025-07-20 22:19:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:19:45 --> Transaction history: [
+    {
+        "name": "MARVIN",
+        "last_name": "PEREZ",
+        "email": "marvineduardosantosperez@gmail.com",
+        "phone": "3132311084",
+        "amount": "5379.60",
+        "transaction_type": "loan",
+        "transaction_date": "2025-07-20 21:01:15"
+    }
+]
+INFO - 2025-07-20 22:19:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:19:53 --> Transaction history: [
+    {
+        "name": "MARVIN",
+        "last_name": "PEREZ",
+        "email": "marvineduardosantosperez@gmail.com",
+        "phone": "3132311084",
+        "amount": "5379.60",
+        "transaction_type": "loan",
+        "transaction_date": "2025-07-20 21:01:15"
+    }
+]
+INFO - 2025-07-20 22:19:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:19:54 --> Transaction history: [
+    {
+        "name": "MARVIN",
+        "last_name": "PEREZ",
+        "email": "marvineduardosantosperez@gmail.com",
+        "phone": "3132311084",
+        "amount": "5379.60",
+        "transaction_type": "loan",
+        "transaction_date": "2025-07-20 21:01:15"
+    }
+]
+INFO - 2025-07-20 22:19:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:19:57 --> Transaction history: [
+    {
+        "name": "MARVIN",
+        "last_name": "PEREZ",
+        "email": "marvineduardosantosperez@gmail.com",
+        "phone": "3132311084",
+        "amount": "5379.60",
+        "transaction_type": "loan",
+        "transaction_date": "2025-07-20 21:01:15"
+    }
+]
+INFO - 2025-07-20 22:19:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:19:59 --> Transaction history: [
+    {
+        "name": "MARVIN",
+        "last_name": "PEREZ",
+        "email": "marvineduardosantosperez@gmail.com",
+        "phone": "3132311084",
+        "amount": "5379.60",
+        "transaction_type": "loan",
+        "transaction_date": "2025-07-20 21:01:15"
+    }
+]
+INFO - 2025-07-20 22:20:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:20:02 --> Transaction history: [
+    {
+        "name": "MARVIN",
+        "last_name": "PEREZ",
+        "email": "marvineduardosantosperez@gmail.com",
+        "phone": "3132311084",
+        "amount": "5379.60",
+        "transaction_type": "loan",
+        "transaction_date": "2025-07-20 21:01:15"
+    }
+]
+INFO - 2025-07-20 22:20:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:20:06 --> Transaction history: [
+    {
+        "name": "MARVIN",
+        "last_name": "PEREZ",
+        "email": "marvineduardosantosperez@gmail.com",
+        "phone": "3132311084",
+        "amount": "5379.60",
+        "transaction_type": "loan",
+        "transaction_date": "2025-07-20 21:01:15"
+    }
+]
+INFO - 2025-07-20 22:20:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:20:25 --> Transaction history: [
+    {
+        "name": "MARVIN",
+        "last_name": "PEREZ",
+        "email": "marvineduardosantosperez@gmail.com",
+        "phone": "3132311084",
+        "amount": "5379.60",
+        "transaction_type": "loan",
+        "transaction_date": "2025-07-20 21:01:15"
+    }
+]
+INFO - 2025-07-20 22:21:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:21:52 --> Transaction history: [
+    {
+        "name": "MARVIN",
+        "last_name": "PEREZ",
+        "email": "marvineduardosantosperez@gmail.com",
+        "phone": "3132311084",
+        "amount": "5379.60",
+        "transaction_type": "loan",
+        "transaction_date": "2025-07-20 21:01:15"
+    }
+]
+INFO - 2025-07-20 22:22:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:22:22 --> Datos recogidos de LA BASE DE DATOS: {"users":[{"agreement":null,"number":null,"letter":null,"date_from":null,"date_to":null,"policy":null,"approved_by":null,"approved_date":null,"id_user":"2","name":"ANA","last_name":"L\u00d3PEZ","identification":"987654321","email":"ana@example.com","phone":null,"address":null,"trust":null,"email_del_trust":null,"telephone_del_trust":null,"profile_image":null,"bank":null,"swift":null,"aba":null,"iban":null,"account":null,"password_hash":"$2y$10$xdHFXhYoOaUbqjip72qvj.3489G7unuXyD7gHL\/XTwcUsDTFyMj6G","date_registration":"2025-07-20 20:54:16","login_attempts":"0","last_login_attempt":null,"status":"active","role_id":"2","balance":"0.00","principal":"5000.00","rate":"3.50","compoundingPeriods":"2","time":"6","role_name":"CLIENT"},{"agreement":"","number":"0","letter":"","date_from":"0000-00-00","date_to":"0000-00-00","policy":"","approved_by":"","approved_date":"0000-00-00","id_user":"3","name":"MARVIN","last_name":"PEREZ","identification":"1111111","email":"marvinamazon730@gmail.com","phone":"3132311084","address":"KDX 286-300 AV CIRCUNVALAR FRENTE A LA CANCHA DE TIERRA","trust":"QWERFQWEF","email_del_trust":"marvineduardosantosperez@gmail.com","telephone_del_trust":"3132311084","profile_image":null,"bank":"","swift":"","aba":"","iban":"","account":"","password_hash":"$2y$10$v7DS8NpsIK7nFsZK3GrReeRnF.wGSPo\/LCT430K6jNwrmT2QOKKkG","date_registration":"2025-07-20 20:58:02","login_attempts":"0","last_login_attempt":null,"status":"active","role_id":"2","balance":"2207.60","principal":"2000.00","rate":"0.05","compoundingPeriods":"2","time":"2","role_name":"CLIENT"},{"agreement":"","number":"0","letter":"","date_from":"0000-00-00","date_to":"0000-00-00","policy":"","approved_by":"","approved_date":"0000-00-00","id_user":"4","name":"MARVIN","last_name":"PEREZ","identification":"1111111444","email":"marvineduardosantosperez@gmail.com","phone":"3132311084","address":"KDX 286-300 AV CIRCUNVALAR","trust":"WEFASDF","email_del_trust":"marvin.santos@soy.sena.edu.co","telephone_del_trust":"3132311084","profile_image":null,"bank":"","swift":"","aba":"","iban":"","account":"","password_hash":"$2y$10$7vSrIerSadRrT7HBoLg79elpc8XPvnBa5c75Y7uf4CpPWhraYzgcy","date_registration":"2025-07-20 21:01:15","login_attempts":"0","last_login_attempt":"2025-07-20 21:09:45","status":"active","role_id":"2","balance":"5379.60","principal":"4000.00","rate":"0.05","compoundingPeriods":"2","time":"6","role_name":"CLIENT"}],"roles":[{"role_name":"ADMIN","role_description":"ADMINISTRADOR CON ACCESO COMPLETO","created_at":"2025-07-20 20:54:16","id_role":"1"},{"role_name":"CLIENT","role_description":"USUARIO CON PERMISOS DE EDICI\u00d3N","created_at":"2025-07-20 20:54:16","id_role":"2"}]}
+INFO - 2025-07-20 22:22:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:22:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:22:30 --> Starting user search...
+INFO - 2025-07-20 22:22:30 --> Received identification: 1111111
+INFO - 2025-07-20 22:22:30 --> User found: {"agreement":"","number":"0","letter":"","date_from":"0000-00-00","date_to":"0000-00-00","policy":"","approved_by":"","approved_date":"0000-00-00","name":"MARVIN","last_name":"PEREZ","identification":"1111111","email":"marvinamazon730@gmail.com","phone":"3132311084","address":"KDX 286-300 AV CIRCUNVALAR FRENTE A LA CANCHA DE TIERRA","trust":"QWERFQWEF","email_del_trust":"marvineduardosantosperez@gmail.com","telephone_del_trust":"3132311084","profile_image":null,"bank":"","swift":"","aba":"","iban":"","account":"","password_hash":"$2y$10$v7DS8NpsIK7nFsZK3GrReeRnF.wGSPo\/LCT430K6jNwrmT2QOKKkG","date_registration":"2025-07-20 20:58:02","login_attempts":"0","last_login_attempt":null,"status":"active","role_id":"2","reset_token":null,"reset_token_expiration":null,"balance":"2207.60","principal":"2000.00","rate":"0.05","compoundingPeriods":"2","time":"2","id_user":"3"}
+INFO - 2025-07-20 22:22:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:22:32 --> Transaction history: [
+    {
+        "name": "MARVIN",
+        "last_name": "PEREZ",
+        "email": "marvinamazon730@gmail.com",
+        "phone": "3132311084",
+        "amount": "2207.60",
+        "transaction_type": "loan",
+        "transaction_date": "2025-07-20 20:58:02"
+    }
+]
+INFO - 2025-07-20 22:22:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:22:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:22:38 --> UserManagementModel: getUsers called with id: 
+INFO - 2025-07-20 22:22:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:28:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:29:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:29:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:29:00 --> Usuario autenticado con role_id: 
+INFO - 2025-07-20 22:30:32 --> El método authenticate fue llamado
+INFO - 2025-07-20 22:30:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:30:32 --> Usuario autenticado con ID: 1, Nombre: JUAN PÉREZ
+INFO - 2025-07-20 22:30:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:30:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:30:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:30:36 --> Usuario autenticado con role_id: 
+INFO - 2025-07-20 22:30:50 --> El método authenticate fue llamado
+INFO - 2025-07-20 22:30:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:30:50 --> Usuario autenticado con ID: 4, Nombre: MARVIN PEREZ
+INFO - 2025-07-20 22:30:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:30:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:31:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-07-20 22:31:04 --> Exception: Serialization of 'CodeIgniter\HTTP\Files\UploadedFile' is not allowed
+[Method: POST, Route: client/pqrs-sent/save]
+in [no active file] on line 0.
+ 1 [internal function]: session_write_close()
+INFO - 2025-07-20 22:34:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-07-20 22:34:13 --> Exception: Serialization of 'CodeIgniter\HTTP\Files\UploadedFile' is not allowed
+[Method: POST, Route: client/pqrs-sent/save]
+in [no active file] on line 0.
+ 1 [internal function]: session_write_close()
+INFO - 2025-07-20 22:34:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:34:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:34:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:34:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:34:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:34:32 --> Consultando solicitudes del usuario ID: 4
+INFO - 2025-07-20 22:34:32 --> Datos obtenidos: Array
+(
+    [0] => Array
+        (
+            [id_request] => 14
+            [unique_code] => REQ-560918
+            [email] => marvineduardosantosperez@gmail.com
+            [type] => CLAIM
+            [id_type] => 3
+            [status] => PENDING
+            [id_status] => 1
+            [attachment_url] => 1753068866_87610774088344561844.png
+            [description] => ETYUJDTRYU SRDYUDSRTU
+            [response] => 
+            [created_at] => 2025-07-20 22:34:26
+            [updated_at] => 2025-07-20 22:34:26
+        )
+
+    [1] => Array
+        (
+            [id_request] => 13
+            [unique_code] => REQ-ECE835
+            [email] => marvineduardosantosperez@gmail.com
+            [type] => SUGGESTION
+            [id_type] => 4
+            [status] => PENDING
+            [id_status] => 1
+            [attachment_url] => 1753067686_0332be538fb1f314ed82.png
+            [description] => AEWRGAWERT AWRETAW ERTAWRET
+            [response] => 
+            [created_at] => 2025-07-20 22:14:46
+            [updated_at] => 2025-07-20 22:14:46
+        )
+
+    [2] => Array
+        (
+            [id_request] => 12
+            [unique_code] => REQ-C6105C
+            [email] => marvineduardosantosperez@gmail.com
+            [type] => COMPLAINT
+            [id_type] => 2
+            [status] => PENDING
+            [id_status] => 1
+            [attachment_url] => 1753067534_54b9228af5a7a398dd7c.png
+            [description] => WQ3RTWQERT
+            [response] => 
+            [created_at] => 2025-07-20 22:12:14
+            [updated_at] => 2025-07-20 22:12:14
+        )
+
+    [3] => Array
+        (
+            [id_request] => 11
+            [unique_code] => REQ-18FB10
+            [email] => marvineduardosantosperez@gmail.com
+            [type] => COMPLAINT
+            [id_type] => 2
+            [status] => PENDING
+            [id_status] => 1
+            [attachment_url] => 1753067531_cfa404ebbf2a5539c31d.png
+            [description] => WQ3RTWQERT
+            [response] => 
+            [created_at] => 2025-07-20 22:12:11
+            [updated_at] => 2025-07-20 22:12:11
+        )
+
+    [4] => Array
+        (
+            [id_request] => 10
+            [unique_code] => REQ-3A04EF
+            [email] => marvineduardosantosperez@gmail.com
+            [type] => COMPLAINT
+            [id_type] => 2
+            [status] => PENDING
+            [id_status] => 1
+            [attachment_url] => 1753067529_6fe0a4ccb13cd3736d1d.png
+            [description] => WQ3RTWQERT
+            [response] => 
+            [created_at] => 2025-07-20 22:12:09
+            [updated_at] => 2025-07-20 22:12:09
+        )
+
+    [5] => Array
+        (
+            [id_request] => 9
+            [unique_code] => REQ-B5AD30
+            [email] => marvineduardosantosperez@gmail.com
+            [type] => COMPLAINT
+            [id_type] => 2
+            [status] => PENDING
+            [id_status] => 1
+            [attachment_url] => 1753067527_47c483b4b74be4d054fb.png
+            [description] => WQ3RTWQERT
+            [response] => 
+            [created_at] => 2025-07-20 22:12:07
+            [updated_at] => 2025-07-20 22:12:07
+        )
+
+    [6] => Array
+        (
+            [id_request] => 8
+            [unique_code] => REQ-F0502D
+            [email] => marvineduardosantosperez@gmail.com
+            [type] => COMPLAINT
+            [id_type] => 2
+            [status] => PENDING
+            [id_status] => 1
+            [attachment_url] => 1753067524_b17df8d4f14b8e2029db.png
+            [description] => WQ3RTWQERT
+            [response] => 
+            [created_at] => 2025-07-20 22:12:04
+            [updated_at] => 2025-07-20 22:12:04
+        )
+
+    [7] => Array
+        (
+            [id_request] => 7
+            [unique_code] => REQ-CBEA58
+            [email] => marvineduardosantosperez@gmail.com
+            [type] => COMPLAINT
+            [id_type] => 2
+            [status] => PENDING
+            [id_status] => 1
+            [attachment_url] => 1753067521_e9714a11e0db9ba7a8f6.png
+            [description] => WQ3RTWQERT
+            [response] => 
+            [created_at] => 2025-07-20 22:12:01
+            [updated_at] => 2025-07-20 22:12:01
+        )
+
+    [8] => Array
+        (
+            [id_request] => 6
+            [unique_code] => REQ-5A8748
+            [email] => marvineduardosantosperez@gmail.com
+            [type] => COMPLAINT
+            [id_type] => 2
+            [status] => PENDING
+            [id_status] => 1
+            [attachment_url] => 1753067180_156a8af89becb6e27e26.png
+            [description] => WERTWR3TER
+            [response] => 
+            [created_at] => 2025-07-20 22:06:20
+            [updated_at] => 2025-07-20 22:06:20
+        )
+
+    [9] => Array
+        (
+            [id_request] => 5
+            [unique_code] => REQ-1BE14D
+            [email] => marvineduardosantosperez@gmail.com
+            [type] => COMPLAINT
+            [id_type] => 2
+            [status] => PENDING
+            [id_status] => 1
+            [attachment_url] => 1753066925_1f0e1122c82637e1ea90.png
+            [description] => AERTFGSAZDRT SETR YASERTY
+            [response] => 
+            [created_at] => 2025-07-20 22:02:05
+            [updated_at] => 2025-07-20 22:02:05
+        )
+
+    [10] => Array
+        (
+            [id_request] => 4
+            [unique_code] => REQ-DE59DE
+            [email] => marvineduardosantosperez@gmail.com
+            [type] => CLAIM
+            [id_type] => 3
+            [status] => PENDING
+            [id_status] => 1
+            [attachment_url] => 1753064738_84e4143f3434a60a0c96.png
+            [description] => WERTG WRTGWE G
+            [response] => 
+            [created_at] => 2025-07-20 21:25:38
+            [updated_at] => 2025-07-20 21:25:38
+        )
+
+)
+
+INFO - 2025-07-20 22:35:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:35:13 --> Consultando solicitudes del usuario ID: 4
+INFO - 2025-07-20 22:35:13 --> Datos obtenidos: Array
+(
+    [0] => Array
+        (
+            [id_request] => 14
+            [unique_code] => REQ-560918
+            [email] => marvineduardosantosperez@gmail.com
+            [type] => CLAIM
+            [id_type] => 3
+            [status] => PENDING
+            [id_status] => 1
+            [attachment_url] => 1753068866_87610774088344561844.png
+            [description] => ETYUJDTRYU SRDYUDSRTU
+            [response] => 
+            [created_at] => 2025-07-20 22:34:26
+            [updated_at] => 2025-07-20 22:34:26
+        )
+
+    [1] => Array
+        (
+            [id_request] => 13
+            [unique_code] => REQ-ECE835
+            [email] => marvineduardosantosperez@gmail.com
+            [type] => SUGGESTION
+            [id_type] => 4
+            [status] => PENDING
+            [id_status] => 1
+            [attachment_url] => 1753067686_0332be538fb1f314ed82.png
+            [description] => AEWRGAWERT AWRETAW ERTAWRET
+            [response] => 
+            [created_at] => 2025-07-20 22:14:46
+            [updated_at] => 2025-07-20 22:14:46
+        )
+
+    [2] => Array
+        (
+            [id_request] => 12
+            [unique_code] => REQ-C6105C
+            [email] => marvineduardosantosperez@gmail.com
+            [type] => COMPLAINT
+            [id_type] => 2
+            [status] => PENDING
+            [id_status] => 1
+            [attachment_url] => 1753067534_54b9228af5a7a398dd7c.png
+            [description] => WQ3RTWQERT
+            [response] => 
+            [created_at] => 2025-07-20 22:12:14
+            [updated_at] => 2025-07-20 22:12:14
+        )
+
+    [3] => Array
+        (
+            [id_request] => 11
+            [unique_code] => REQ-18FB10
+            [email] => marvineduardosantosperez@gmail.com
+            [type] => COMPLAINT
+            [id_type] => 2
+            [status] => PENDING
+            [id_status] => 1
+            [attachment_url] => 1753067531_cfa404ebbf2a5539c31d.png
+            [description] => WQ3RTWQERT
+            [response] => 
+            [created_at] => 2025-07-20 22:12:11
+            [updated_at] => 2025-07-20 22:12:11
+        )
+
+    [4] => Array
+        (
+            [id_request] => 10
+            [unique_code] => REQ-3A04EF
+            [email] => marvineduardosantosperez@gmail.com
+            [type] => COMPLAINT
+            [id_type] => 2
+            [status] => PENDING
+            [id_status] => 1
+            [attachment_url] => 1753067529_6fe0a4ccb13cd3736d1d.png
+            [description] => WQ3RTWQERT
+            [response] => 
+            [created_at] => 2025-07-20 22:12:09
+            [updated_at] => 2025-07-20 22:12:09
+        )
+
+    [5] => Array
+        (
+            [id_request] => 9
+            [unique_code] => REQ-B5AD30
+            [email] => marvineduardosantosperez@gmail.com
+            [type] => COMPLAINT
+            [id_type] => 2
+            [status] => PENDING
+            [id_status] => 1
+            [attachment_url] => 1753067527_47c483b4b74be4d054fb.png
+            [description] => WQ3RTWQERT
+            [response] => 
+            [created_at] => 2025-07-20 22:12:07
+            [updated_at] => 2025-07-20 22:12:07
+        )
+
+    [6] => Array
+        (
+            [id_request] => 8
+            [unique_code] => REQ-F0502D
+            [email] => marvineduardosantosperez@gmail.com
+            [type] => COMPLAINT
+            [id_type] => 2
+            [status] => PENDING
+            [id_status] => 1
+            [attachment_url] => 1753067524_b17df8d4f14b8e2029db.png
+            [description] => WQ3RTWQERT
+            [response] => 
+            [created_at] => 2025-07-20 22:12:04
+            [updated_at] => 2025-07-20 22:12:04
+        )
+
+    [7] => Array
+        (
+            [id_request] => 7
+            [unique_code] => REQ-CBEA58
+            [email] => marvineduardosantosperez@gmail.com
+            [type] => COMPLAINT
+            [id_type] => 2
+            [status] => PENDING
+            [id_status] => 1
+            [attachment_url] => 1753067521_e9714a11e0db9ba7a8f6.png
+            [description] => WQ3RTWQERT
+            [response] => 
+            [created_at] => 2025-07-20 22:12:01
+            [updated_at] => 2025-07-20 22:12:01
+        )
+
+    [8] => Array
+        (
+            [id_request] => 6
+            [unique_code] => REQ-5A8748
+            [email] => marvineduardosantosperez@gmail.com
+            [type] => COMPLAINT
+            [id_type] => 2
+            [status] => PENDING
+            [id_status] => 1
+            [attachment_url] => 1753067180_156a8af89becb6e27e26.png
+            [description] => WERTWR3TER
+            [response] => 
+            [created_at] => 2025-07-20 22:06:20
+            [updated_at] => 2025-07-20 22:06:20
+        )
+
+    [9] => Array
+        (
+            [id_request] => 5
+            [unique_code] => REQ-1BE14D
+            [email] => marvineduardosantosperez@gmail.com
+            [type] => COMPLAINT
+            [id_type] => 2
+            [status] => PENDING
+            [id_status] => 1
+            [attachment_url] => 1753066925_1f0e1122c82637e1ea90.png
+            [description] => AERTFGSAZDRT SETR YASERTY
+            [response] => 
+            [created_at] => 2025-07-20 22:02:05
+            [updated_at] => 2025-07-20 22:02:05
+        )
+
+    [10] => Array
+        (
+            [id_request] => 4
+            [unique_code] => REQ-DE59DE
+            [email] => marvineduardosantosperez@gmail.com
+            [type] => CLAIM
+            [id_type] => 3
+            [status] => PENDING
+            [id_status] => 1
+            [attachment_url] => 1753064738_84e4143f3434a60a0c96.png
+            [description] => WERTG WRTGWE G
+            [response] => 
+            [created_at] => 2025-07-20 21:25:38
+            [updated_at] => 2025-07-20 21:25:38
+        )
+
+)
+
+INFO - 2025-07-20 22:35:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:35:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:35:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:35:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:35:26 --> Consultando solicitudes del usuario ID: 4
+INFO - 2025-07-20 22:35:26 --> Datos obtenidos: Array
+(
+    [0] => Array
+        (
+            [id_request] => 15
+            [unique_code] => REQ-BC525C
+            [email] => marvineduardosantosperez@gmail.com
+            [type] => SUGGESTION
+            [id_type] => 4
+            [status] => PENDING
+            [id_status] => 1
+            [attachment_url] => 1753068924_6d1c4dc36047e2b9bc4f.png
+            [description] => AERGAERG AWRETGAWRT
+            [response] => 
+            [created_at] => 2025-07-20 22:35:24
+            [updated_at] => 2025-07-20 22:35:24
+        )
+
+    [1] => Array
+        (
+            [id_request] => 14
+            [unique_code] => REQ-560918
+            [email] => marvineduardosantosperez@gmail.com
+            [type] => CLAIM
+            [id_type] => 3
+            [status] => PENDING
+            [id_status] => 1
+            [attachment_url] => 1753068866_87610774088344561844.png
+            [description] => ETYUJDTRYU SRDYUDSRTU
+            [response] => 
+            [created_at] => 2025-07-20 22:34:26
+            [updated_at] => 2025-07-20 22:34:26
+        )
+
+    [2] => Array
+        (
+            [id_request] => 13
+            [unique_code] => REQ-ECE835
+            [email] => marvineduardosantosperez@gmail.com
+            [type] => SUGGESTION
+            [id_type] => 4
+            [status] => PENDING
+            [id_status] => 1
+            [attachment_url] => 1753067686_0332be538fb1f314ed82.png
+            [description] => AEWRGAWERT AWRETAW ERTAWRET
+            [response] => 
+            [created_at] => 2025-07-20 22:14:46
+            [updated_at] => 2025-07-20 22:14:46
+        )
+
+    [3] => Array
+        (
+            [id_request] => 12
+            [unique_code] => REQ-C6105C
+            [email] => marvineduardosantosperez@gmail.com
+            [type] => COMPLAINT
+            [id_type] => 2
+            [status] => PENDING
+            [id_status] => 1
+            [attachment_url] => 1753067534_54b9228af5a7a398dd7c.png
+            [description] => WQ3RTWQERT
+            [response] => 
+            [created_at] => 2025-07-20 22:12:14
+            [updated_at] => 2025-07-20 22:12:14
+        )
+
+    [4] => Array
+        (
+            [id_request] => 11
+            [unique_code] => REQ-18FB10
+            [email] => marvineduardosantosperez@gmail.com
+            [type] => COMPLAINT
+            [id_type] => 2
+            [status] => PENDING
+            [id_status] => 1
+            [attachment_url] => 1753067531_cfa404ebbf2a5539c31d.png
+            [description] => WQ3RTWQERT
+            [response] => 
+            [created_at] => 2025-07-20 22:12:11
+            [updated_at] => 2025-07-20 22:12:11
+        )
+
+    [5] => Array
+        (
+            [id_request] => 10
+            [unique_code] => REQ-3A04EF
+            [email] => marvineduardosantosperez@gmail.com
+            [type] => COMPLAINT
+            [id_type] => 2
+            [status] => PENDING
+            [id_status] => 1
+            [attachment_url] => 1753067529_6fe0a4ccb13cd3736d1d.png
+            [description] => WQ3RTWQERT
+            [response] => 
+            [created_at] => 2025-07-20 22:12:09
+            [updated_at] => 2025-07-20 22:12:09
+        )
+
+    [6] => Array
+        (
+            [id_request] => 9
+            [unique_code] => REQ-B5AD30
+            [email] => marvineduardosantosperez@gmail.com
+            [type] => COMPLAINT
+            [id_type] => 2
+            [status] => PENDING
+            [id_status] => 1
+            [attachment_url] => 1753067527_47c483b4b74be4d054fb.png
+            [description] => WQ3RTWQERT
+            [response] => 
+            [created_at] => 2025-07-20 22:12:07
+            [updated_at] => 2025-07-20 22:12:07
+        )
+
+    [7] => Array
+        (
+            [id_request] => 8
+            [unique_code] => REQ-F0502D
+            [email] => marvineduardosantosperez@gmail.com
+            [type] => COMPLAINT
+            [id_type] => 2
+            [status] => PENDING
+            [id_status] => 1
+            [attachment_url] => 1753067524_b17df8d4f14b8e2029db.png
+            [description] => WQ3RTWQERT
+            [response] => 
+            [created_at] => 2025-07-20 22:12:04
+            [updated_at] => 2025-07-20 22:12:04
+        )
+
+    [8] => Array
+        (
+            [id_request] => 7
+            [unique_code] => REQ-CBEA58
+            [email] => marvineduardosantosperez@gmail.com
+            [type] => COMPLAINT
+            [id_type] => 2
+            [status] => PENDING
+            [id_status] => 1
+            [attachment_url] => 1753067521_e9714a11e0db9ba7a8f6.png
+            [description] => WQ3RTWQERT
+            [response] => 
+            [created_at] => 2025-07-20 22:12:01
+            [updated_at] => 2025-07-20 22:12:01
+        )
+
+    [9] => Array
+        (
+            [id_request] => 6
+            [unique_code] => REQ-5A8748
+            [email] => marvineduardosantosperez@gmail.com
+            [type] => COMPLAINT
+            [id_type] => 2
+            [status] => PENDING
+            [id_status] => 1
+            [attachment_url] => 1753067180_156a8af89becb6e27e26.png
+            [description] => WERTWR3TER
+            [response] => 
+            [created_at] => 2025-07-20 22:06:20
+            [updated_at] => 2025-07-20 22:06:20
+        )
+
+    [10] => Array
+        (
+            [id_request] => 5
+            [unique_code] => REQ-1BE14D
+            [email] => marvineduardosantosperez@gmail.com
+            [type] => COMPLAINT
+            [id_type] => 2
+            [status] => PENDING
+            [id_status] => 1
+            [attachment_url] => 1753066925_1f0e1122c82637e1ea90.png
+            [description] => AERTFGSAZDRT SETR YASERTY
+            [response] => 
+            [created_at] => 2025-07-20 22:02:05
+            [updated_at] => 2025-07-20 22:02:05
+        )
+
+    [11] => Array
+        (
+            [id_request] => 4
+            [unique_code] => REQ-DE59DE
+            [email] => marvineduardosantosperez@gmail.com
+            [type] => CLAIM
+            [id_type] => 3
+            [status] => PENDING
+            [id_status] => 1
+            [attachment_url] => 1753064738_84e4143f3434a60a0c96.png
+            [description] => WERTG WRTGWE G
+            [response] => 
+            [created_at] => 2025-07-20 21:25:38
+            [updated_at] => 2025-07-20 21:25:38
+        )
+
+)
+
+INFO - 2025-07-20 22:42:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:42:04 --> Consultando solicitudes del usuario ID: 4
+INFO - 2025-07-20 22:42:04 --> Datos obtenidos: Array
+(
+    [0] => Array
+        (
+            [id_request] => 15
+            [unique_code] => REQ-BC525C
+            [email] => marvineduardosantosperez@gmail.com
+            [type] => SUGGESTION
+            [id_type] => 4
+            [status] => PENDING
+            [id_status] => 1
+            [attachment_url] => 1753068924_6d1c4dc36047e2b9bc4f.png
+            [description] => AERGAERG AWRETGAWRT
+            [response] => 
+            [created_at] => 2025-07-20 22:35:24
+            [updated_at] => 2025-07-20 22:35:24
+        )
+
+    [1] => Array
+        (
+            [id_request] => 14
+            [unique_code] => REQ-560918
+            [email] => marvineduardosantosperez@gmail.com
+            [type] => CLAIM
+            [id_type] => 3
+            [status] => PENDING
+            [id_status] => 1
+            [attachment_url] => 1753068866_87610774088344561844.png
+            [description] => ETYUJDTRYU SRDYUDSRTU
+            [response] => 
+            [created_at] => 2025-07-20 22:34:26
+            [updated_at] => 2025-07-20 22:34:26
+        )
+
+    [2] => Array
+        (
+            [id_request] => 13
+            [unique_code] => REQ-ECE835
+            [email] => marvineduardosantosperez@gmail.com
+            [type] => SUGGESTION
+            [id_type] => 4
+            [status] => PENDING
+            [id_status] => 1
+            [attachment_url] => 1753067686_0332be538fb1f314ed82.png
+            [description] => AEWRGAWERT AWRETAW ERTAWRET
+            [response] => 
+            [created_at] => 2025-07-20 22:14:46
+            [updated_at] => 2025-07-20 22:14:46
+        )
+
+    [3] => Array
+        (
+            [id_request] => 12
+            [unique_code] => REQ-C6105C
+            [email] => marvineduardosantosperez@gmail.com
+            [type] => COMPLAINT
+            [id_type] => 2
+            [status] => PENDING
+            [id_status] => 1
+            [attachment_url] => 1753067534_54b9228af5a7a398dd7c.png
+            [description] => WQ3RTWQERT
+            [response] => 
+            [created_at] => 2025-07-20 22:12:14
+            [updated_at] => 2025-07-20 22:12:14
+        )
+
+    [4] => Array
+        (
+            [id_request] => 11
+            [unique_code] => REQ-18FB10
+            [email] => marvineduardosantosperez@gmail.com
+            [type] => COMPLAINT
+            [id_type] => 2
+            [status] => PENDING
+            [id_status] => 1
+            [attachment_url] => 1753067531_cfa404ebbf2a5539c31d.png
+            [description] => WQ3RTWQERT
+            [response] => 
+            [created_at] => 2025-07-20 22:12:11
+            [updated_at] => 2025-07-20 22:12:11
+        )
+
+    [5] => Array
+        (
+            [id_request] => 10
+            [unique_code] => REQ-3A04EF
+            [email] => marvineduardosantosperez@gmail.com
+            [type] => COMPLAINT
+            [id_type] => 2
+            [status] => PENDING
+            [id_status] => 1
+            [attachment_url] => 1753067529_6fe0a4ccb13cd3736d1d.png
+            [description] => WQ3RTWQERT
+            [response] => 
+            [created_at] => 2025-07-20 22:12:09
+            [updated_at] => 2025-07-20 22:12:09
+        )
+
+    [6] => Array
+        (
+            [id_request] => 9
+            [unique_code] => REQ-B5AD30
+            [email] => marvineduardosantosperez@gmail.com
+            [type] => COMPLAINT
+            [id_type] => 2
+            [status] => PENDING
+            [id_status] => 1
+            [attachment_url] => 1753067527_47c483b4b74be4d054fb.png
+            [description] => WQ3RTWQERT
+            [response] => 
+            [created_at] => 2025-07-20 22:12:07
+            [updated_at] => 2025-07-20 22:12:07
+        )
+
+    [7] => Array
+        (
+            [id_request] => 8
+            [unique_code] => REQ-F0502D
+            [email] => marvineduardosantosperez@gmail.com
+            [type] => COMPLAINT
+            [id_type] => 2
+            [status] => PENDING
+            [id_status] => 1
+            [attachment_url] => 1753067524_b17df8d4f14b8e2029db.png
+            [description] => WQ3RTWQERT
+            [response] => 
+            [created_at] => 2025-07-20 22:12:04
+            [updated_at] => 2025-07-20 22:12:04
+        )
+
+    [8] => Array
+        (
+            [id_request] => 7
+            [unique_code] => REQ-CBEA58
+            [email] => marvineduardosantosperez@gmail.com
+            [type] => COMPLAINT
+            [id_type] => 2
+            [status] => PENDING
+            [id_status] => 1
+            [attachment_url] => 1753067521_e9714a11e0db9ba7a8f6.png
+            [description] => WQ3RTWQERT
+            [response] => 
+            [created_at] => 2025-07-20 22:12:01
+            [updated_at] => 2025-07-20 22:12:01
+        )
+
+    [9] => Array
+        (
+            [id_request] => 6
+            [unique_code] => REQ-5A8748
+            [email] => marvineduardosantosperez@gmail.com
+            [type] => COMPLAINT
+            [id_type] => 2
+            [status] => PENDING
+            [id_status] => 1
+            [attachment_url] => 1753067180_156a8af89becb6e27e26.png
+            [description] => WERTWR3TER
+            [response] => 
+            [created_at] => 2025-07-20 22:06:20
+            [updated_at] => 2025-07-20 22:06:20
+        )
+
+    [10] => Array
+        (
+            [id_request] => 5
+            [unique_code] => REQ-1BE14D
+            [email] => marvineduardosantosperez@gmail.com
+            [type] => COMPLAINT
+            [id_type] => 2
+            [status] => PENDING
+            [id_status] => 1
+            [attachment_url] => 1753066925_1f0e1122c82637e1ea90.png
+            [description] => AERTFGSAZDRT SETR YASERTY
+            [response] => 
+            [created_at] => 2025-07-20 22:02:05
+            [updated_at] => 2025-07-20 22:02:05
+        )
+
+    [11] => Array
+        (
+            [id_request] => 4
+            [unique_code] => REQ-DE59DE
+            [email] => marvineduardosantosperez@gmail.com
+            [type] => CLAIM
+            [id_type] => 3
+            [status] => PENDING
+            [id_status] => 1
+            [attachment_url] => 1753064738_84e4143f3434a60a0c96.png
+            [description] => WERTG WRTGWE G
+            [response] => 
+            [created_at] => 2025-07-20 21:25:38
+            [updated_at] => 2025-07-20 21:25:38
+        )
+
+)
+
+INFO - 2025-07-20 22:42:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:42:08 --> Consultando solicitudes del usuario ID: 4
+INFO - 2025-07-20 22:42:08 --> Datos obtenidos: Array
+(
+    [0] => Array
+        (
+            [id_request] => 15
+            [unique_code] => REQ-BC525C
+            [email] => marvineduardosantosperez@gmail.com
+            [type] => SUGGESTION
+            [id_type] => 4
+            [status] => PENDING
+            [id_status] => 1
+            [attachment_url] => 1753068924_6d1c4dc36047e2b9bc4f.png
+            [description] => AERGAERG AWRETGAWRT
+            [response] => 
+            [created_at] => 2025-07-20 22:35:24
+            [updated_at] => 2025-07-20 22:35:24
+        )
+
+    [1] => Array
+        (
+            [id_request] => 14
+            [unique_code] => REQ-560918
+            [email] => marvineduardosantosperez@gmail.com
+            [type] => CLAIM
+            [id_type] => 3
+            [status] => PENDING
+            [id_status] => 1
+            [attachment_url] => 1753068866_87610774088344561844.png
+            [description] => ETYUJDTRYU SRDYUDSRTU
+            [response] => 
+            [created_at] => 2025-07-20 22:34:26
+            [updated_at] => 2025-07-20 22:34:26
+        )
+
+    [2] => Array
+        (
+            [id_request] => 13
+            [unique_code] => REQ-ECE835
+            [email] => marvineduardosantosperez@gmail.com
+            [type] => SUGGESTION
+            [id_type] => 4
+            [status] => PENDING
+            [id_status] => 1
+            [attachment_url] => 1753067686_0332be538fb1f314ed82.png
+            [description] => AEWRGAWERT AWRETAW ERTAWRET
+            [response] => 
+            [created_at] => 2025-07-20 22:14:46
+            [updated_at] => 2025-07-20 22:14:46
+        )
+
+    [3] => Array
+        (
+            [id_request] => 12
+            [unique_code] => REQ-C6105C
+            [email] => marvineduardosantosperez@gmail.com
+            [type] => COMPLAINT
+            [id_type] => 2
+            [status] => PENDING
+            [id_status] => 1
+            [attachment_url] => 1753067534_54b9228af5a7a398dd7c.png
+            [description] => WQ3RTWQERT
+            [response] => 
+            [created_at] => 2025-07-20 22:12:14
+            [updated_at] => 2025-07-20 22:12:14
+        )
+
+    [4] => Array
+        (
+            [id_request] => 11
+            [unique_code] => REQ-18FB10
+            [email] => marvineduardosantosperez@gmail.com
+            [type] => COMPLAINT
+            [id_type] => 2
+            [status] => PENDING
+            [id_status] => 1
+            [attachment_url] => 1753067531_cfa404ebbf2a5539c31d.png
+            [description] => WQ3RTWQERT
+            [response] => 
+            [created_at] => 2025-07-20 22:12:11
+            [updated_at] => 2025-07-20 22:12:11
+        )
+
+    [5] => Array
+        (
+            [id_request] => 10
+            [unique_code] => REQ-3A04EF
+            [email] => marvineduardosantosperez@gmail.com
+            [type] => COMPLAINT
+            [id_type] => 2
+            [status] => PENDING
+            [id_status] => 1
+            [attachment_url] => 1753067529_6fe0a4ccb13cd3736d1d.png
+            [description] => WQ3RTWQERT
+            [response] => 
+            [created_at] => 2025-07-20 22:12:09
+            [updated_at] => 2025-07-20 22:12:09
+        )
+
+    [6] => Array
+        (
+            [id_request] => 9
+            [unique_code] => REQ-B5AD30
+            [email] => marvineduardosantosperez@gmail.com
+            [type] => COMPLAINT
+            [id_type] => 2
+            [status] => PENDING
+            [id_status] => 1
+            [attachment_url] => 1753067527_47c483b4b74be4d054fb.png
+            [description] => WQ3RTWQERT
+            [response] => 
+            [created_at] => 2025-07-20 22:12:07
+            [updated_at] => 2025-07-20 22:12:07
+        )
+
+    [7] => Array
+        (
+            [id_request] => 8
+            [unique_code] => REQ-F0502D
+            [email] => marvineduardosantosperez@gmail.com
+            [type] => COMPLAINT
+            [id_type] => 2
+            [status] => PENDING
+            [id_status] => 1
+            [attachment_url] => 1753067524_b17df8d4f14b8e2029db.png
+            [description] => WQ3RTWQERT
+            [response] => 
+            [created_at] => 2025-07-20 22:12:04
+            [updated_at] => 2025-07-20 22:12:04
+        )
+
+    [8] => Array
+        (
+            [id_request] => 7
+            [unique_code] => REQ-CBEA58
+            [email] => marvineduardosantosperez@gmail.com
+            [type] => COMPLAINT
+            [id_type] => 2
+            [status] => PENDING
+            [id_status] => 1
+            [attachment_url] => 1753067521_e9714a11e0db9ba7a8f6.png
+            [description] => WQ3RTWQERT
+            [response] => 
+            [created_at] => 2025-07-20 22:12:01
+            [updated_at] => 2025-07-20 22:12:01
+        )
+
+    [9] => Array
+        (
+            [id_request] => 6
+            [unique_code] => REQ-5A8748
+            [email] => marvineduardosantosperez@gmail.com
+            [type] => COMPLAINT
+            [id_type] => 2
+            [status] => PENDING
+            [id_status] => 1
+            [attachment_url] => 1753067180_156a8af89becb6e27e26.png
+            [description] => WERTWR3TER
+            [response] => 
+            [created_at] => 2025-07-20 22:06:20
+            [updated_at] => 2025-07-20 22:06:20
+        )
+
+    [10] => Array
+        (
+            [id_request] => 5
+            [unique_code] => REQ-1BE14D
+            [email] => marvineduardosantosperez@gmail.com
+            [type] => COMPLAINT
+            [id_type] => 2
+            [status] => PENDING
+            [id_status] => 1
+            [attachment_url] => 1753066925_1f0e1122c82637e1ea90.png
+            [description] => AERTFGSAZDRT SETR YASERTY
+            [response] => 
+            [created_at] => 2025-07-20 22:02:05
+            [updated_at] => 2025-07-20 22:02:05
+        )
+
+    [11] => Array
+        (
+            [id_request] => 4
+            [unique_code] => REQ-DE59DE
+            [email] => marvineduardosantosperez@gmail.com
+            [type] => CLAIM
+            [id_type] => 3
+            [status] => PENDING
+            [id_status] => 1
+            [attachment_url] => 1753064738_84e4143f3434a60a0c96.png
+            [description] => WERTG WRTGWE G
+            [response] => 
+            [created_at] => 2025-07-20 21:25:38
+            [updated_at] => 2025-07-20 21:25:38
+        )
+
+)
+
+INFO - 2025-07-20 22:42:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:42:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:42:16 --> Usuario autenticado con role_id: 
+INFO - 2025-07-20 22:42:23 --> El método authenticate fue llamado
+INFO - 2025-07-20 22:42:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-07-20 22:42:23 --> Usuario autenticado con ID: 1, Nombre: JUAN PÉREZ
+INFO - 2025-07-20 22:42:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
