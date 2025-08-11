@@ -11,7 +11,6 @@
     <a href="<?= base_url('admin/usermanagement/excel') ?>" class="btn btn-success btn-sm mr-2" title="Exportar a Excel">
         <i class="fas fa-file-excel"></i> Excel
     </a>
-
     <button type="button" id="openModalButtonUser" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addUserModal">
         <i class="fas fa-user-plus"></i> Agregar Usuario
     </button>
@@ -21,48 +20,54 @@
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                 <tr>
-                    <th>Full Name</th>
-                    <th>Identification</th>
+                    <th>Nombre</th>
+                    <th>Documento</th>
                     <th>Email</th>
-                    <th>Role</th>
-                    <th>Status</th>
-                    <th>Actions</th>
+                    <th>Teléfono</th>
+                    <th>Dirección</th>
+                    <th>Género</th>
+                    <th>Fecha Nacimiento</th>
+                    <th>Estado</th>
+                    <th>Rol</th>
+                    <th>Acciones</th>
                 </tr>
                 </thead>
                 <tbody>
                 <?php foreach ($users as $user): ?>
                     <tr>
-                        <td><?= esc($user['name'] . ' ' . $user['last_name']) ?></td>
-                        <td><?= esc($user['identification']) ?></td>
+                        <td><?= esc($user['name']) ?></td>
+                        <td><?= esc($user['documento']) ?></td>
                         <td><?= esc($user['email']) ?></td>
-                        <td><?= esc($user['role_name']) ?></td>
+                        <td><?= esc($user['telefono']) ?></td>
+                        <td><?= esc($user['direccion']) ?></td>
+                        <td><?= esc($user['genero']) ?></td>
+                        <td><?= esc($user['fecha_nacimiento']) ?></td>
                         <td class="text-center">
-                            <?php if ($user['status'] == 'active'): ?>
-                                <span class="badge badge-success">Active</span>
-                                <button class="btn btn-sm btn-success ml-2" title="User is active">
+                            <?php if ($user['estado'] == 'activo'): ?>
+                                <span class="badge badge-success">Activo</span>
+                                <button class="btn btn-sm btn-success ml-2" title="Usuario activo">
                                     <i class="fas fa-check-circle"></i>
                                 </button>
                             <?php else: ?>
-                                <span class="badge badge-danger">Inactive</span>
-                                <button class="btn btn-sm btn-danger ml-2" title="User is inactive">
+                                <span class="badge badge-danger">Inactivo</span>
+                                <button class="btn btn-sm btn-danger ml-2" title="Usuario inactivo">
                                     <i class="fas fa-times-circle"></i>
                                 </button>
                             <?php endif; ?>
                         </td>
-
+                        <td><?= esc($user['role_name']) ?></td>
                         <td class="text-center">
-                            <button class="btn btn-icon btn-secondary btn-sm" data-toggle="modal"
-                                    data-target="#detailsModal-<?= $user['id_user'] ?>" title="View Details">
-                                <i class="fas fa-info-circle"></i>
-                            </button>
-                            <button class="btn btn-icon btn-info btn-sm" data-toggle="modal" id="editButton"
-                                    data-target="#editModal-<?= $user['id_user'] ?>" title="Edit User">
-                                <i class="fas fa-edit"></i>
-                            </button>
-                            <button class="btn btn-icon btn-danger btn-sm" data-toggle="modal"
-                                    data-target="#deleteModal-<?= $user['id_user'] ?>" title="Delete User">
-                                <i class="fas fa-trash-alt"></i>
-                            </button>
+                            <button class="btn btn-icon btn-detail btn-secondary btn-sm" data-toggle="modal"
+                                        data-target="#detailsModal" 
+                                        data-id="<?= $user['id']?>"
+                                        title="View Details">
+                                    <i class="fas fa-info-circle"></i>
+                                </button>
+                                <button class="btn btn-icon btn-edit btn-info btn-sm" data-toggle="modal" id="editModalClient"
+                                        data-target="#editModal"
+                                        data-id="<?= $user['id']?>" title="Edit User">
+                                    <i class="fas fa-edit"></i>
+                                </button>
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -71,10 +76,8 @@
         </div>
     </div>
 </div>
-
 <?= view('security/UserManagement/modals/Create') ?>
 <?= view('security/UserManagement/modals/Delete') ?>
 <?= view('security/UserManagement/modals/Detail') ?>
 <?= view('security/UserManagement/modals/Update') ?>
-
 <?= $this->endSection() ?>

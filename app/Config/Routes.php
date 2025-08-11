@@ -24,6 +24,10 @@ $routes->post('reset-password/confirm', 'AuthController::resetPasswordConfirm');
 
 // Rutas protegidas (requieren autenticación)
 $routes->group('admin', ['filter' => 'auth'], function ($routes) {
+    
+    $routes->get('matricula', 'MatriculaController::index');
+
+
     $routes->get('dashboard', 'HomeController::index');
     // Rutas de autenticación (protegidas) para el gestion de extras
     ///gestion de extras
@@ -102,6 +106,9 @@ $routes->group('admin', ['filter' => 'auth'], function ($routes) {
     $routes->post('usermanagement/update/(:num)', 'UserManagementController::updateUser/$1'); // Actualizar usuario
     $routes->get('usermanagement/delete/(:num)', 'UserManagementController::deleteUser/$1'); // Eliminar usuario
     $routes->get('usermanagement/excel', 'UserManagementController::exportToExcel'); // Exportar a Excel
+    $routes->post('usermanagement/getClient/(:num)', 'UserManagementController::getUserById/$1'); // Actualizar usuario
+    $routes->post('usermanagement/showComboBox', 'UserManagementController::showComboBox');
+
 
     ///changepassword
     $routes->get('changepassword', 'ChangePasswordController::index');  // Cargar formulario
@@ -115,9 +122,11 @@ $routes->group('admin', ['filter' => 'auth'], function ($routes) {
 
 
 
-$routes->group('client', ['filter' => 'auth'], function ($routes) {
+$routes->group('estudiante', ['filter' => 'auth'], function ($routes) {
 
     $routes->post('historytransactions/detail/filter', 'HistoryTransactionsController::filtrarPorFecha');
+
+    $routes->get('reporte-reciclaje', 'HomeController::index');
 
 
     $routes->get('dashboard', 'HomeController::index');

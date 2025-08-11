@@ -28,30 +28,31 @@ class AuthController extends BaseController
             ? redirect()->to('/admin/pqrsmanagement')
             : redirect()->to('/client/dashboard');
     }
-    public function authenticate()
+  public function authenticate()
     {
         log_message('info', 'El método authenticate fue llamado');
-        // Reglas de validación con mensajes personalizados
-     $rules = [
-    'email' => [
-        'rules' => 'required|valid_email',
-        'errors' => [
-            'required' => 'The email field is required.',
-            'valid_email' => 'You must enter a valid email address.',
-        ],
-    ],
-    'password' => [
-        'rules' => 'required|min_length[8]',
-        'errors' => [
-            'required' => 'The password field is required.',
-            'min_length' => 'The password must be at least 8 characters long.',
-        ],
-    ],
-];
 
-        // Validación
+        $rules = [
+            'email' => [
+                'rules' => 'required|valid_email',
+                'errors' => [
+                    'required' => 'El campo de correo es obligatorio.',
+                    'valid_email' => 'Debes ingresar un correo válido.',
+                ],
+            ],
+            'password' => [
+                'rules' => 'required|min_length[8]',
+                'errors' => [
+                    'required' => 'El campo de contraseña es obligatorio.',
+                    'min_length' => 'La contraseña debe tener al menos 8 caracteres.',
+                ],
+            ],
+        ];
+
         if (!$this->validate($rules)) {
-            return redirect()->back()->with('error', implode('<br>', $this->validator->getErrors()));
+            return redirect()->back()
+                ->withInput()
+                ->with('error', implode('<br>', $this->validator->getErrors()));
         }
 
         $email = $this->request->getPost('email');
@@ -59,36 +60,27 @@ class AuthController extends BaseController
 
         $user = $this->userModel->login($email, $password);
 
-        // Manejo de respuestas especiales
-     if ($user === 'locked') {
-    return redirect()->back()->with('error', 'Too many failed attempts. Please try again in 10 minutes.');
-}
-
-if ($user === 'inactive') {
-    return redirect()->back()->with('error', 'Your account is deactivated. Please contact the administrator.');
-}
-
-
         if ($user) {
             $session = session();
             $session->set([
-                'login' => true,
-                'id_user' => $user['id_user'],
-                'name' => $user['name'],
-                'last_name' => $user['last_name'],
-                'email' => $user['email'],
+                'login'   => true,
+                'id'      => $user['id'],
+                'name'    => $user['name'],
+                'email'   => $user['email'],
                 'role_id' => $user['role_id'],
-                'profile_image' => $user['profile_image'] ?? null,
             ]);
 
-            log_message('info', 'Usuario autenticado con ID: ' . $user['id_user'] . ', Nombre: ' . $user['name'] . ' ' . $user['last_name']);
+            log_message('info', 'Usuario autenticado: ' . $user['name']);
 
+            // Redirige según el rol
             return ($user['role_id'] == 1)
-                ? redirect()->to('/admin/pqrsmanagement')
-                : redirect()->to('/client/dashboard');
-        } else {
-return redirect()->back()->with('error', 'Incorrect email or password.');
+                ? redirect()->to('/admin/matricula')
+                : redirect()->to('/estudiante/reporte-reciclaje');
         }
+
+        return redirect()->back()
+            ->withInput()
+            ->with('error', 'Correo o contraseña incorrectos.');
     }
 
     public function recover()

@@ -50,42 +50,31 @@
 
     <style>
         .table thead th {
-            background-color: #f1c40f;
-            /* Color de fondo para las celdas del encabezado */
-            color: #192229;
-            /* Color del texto para contraste */
+            background-color: #296221; /* Color de fondo para las celdas del encabezado */
+            color: white; /* Color del texto para contraste */
         }
-
         /* Style for the scrollbar track */
         ::-webkit-scrollbar {
-            width: 12px;
-            /* Set width for vertical scrollbar */
-            height: 12px;
-            /* Set height for horizontal scrollbar */
+            width: 12px;              /* Set width for vertical scrollbar */
+            height: 12px;             /* Set height for horizontal scrollbar */
         }
 
         /* Style for the scrollbar thumb */
         ::-webkit-scrollbar-thumb {
-            background-color: #888;
-            /* Color of the scrollbar thumb */
-            border-radius: 6px;
-            /* Roundness of the scrollbar thumb */
-            border: 3px solid transparent;
-            /* Add padding around thumb for spacing */
+            background-color: #888;    /* Color of the scrollbar thumb */
+            border-radius: 6px;        /* Roundness of the scrollbar thumb */
+            border: 3px solid transparent; /* Add padding around thumb for spacing */
         }
 
         /* Hover effect for the scrollbar thumb */
         ::-webkit-scrollbar-thumb:hover {
-            background-color: #555;
-            /* Darken color when hovering */
+            background-color: #555;    /* Darken color when hovering */
         }
 
         /* Optional: Style for the scrollbar track (background) */
         ::-webkit-scrollbar-track {
-            background-color: #f1f1f1;
-            /* Color of the scrollbar track */
-            border-radius: 6px;
-            /* Roundness of the scrollbar track */
+            background-color: #f1f1f1; /* Color of the scrollbar track */
+            border-radius: 6px;        /* Roundness of the scrollbar track */
         }
 
         .sidebar-brand {
@@ -100,7 +89,7 @@
             align-items: center;
             justify-content: center;
             border-radius: 50%;
-            background-color: #FEC659;
+            background-color: #EFEFE1;
             width: 60px;
             height: 60px;
             margin-right: 0.5rem;
@@ -108,7 +97,7 @@
         }
 
         .sidebar-brand-icon img {
-            width: 84%;
+            width: 51%;
             height: 84%;
             object-fit: cover;
         }

@@ -1,0 +1,32 @@
+INFO - 2025-08-08 22:16:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-08-08 22:16:42 --> ErrorException: Undefined array key "name"
+[Method: GET, Route: admin/matricula]
+in APPPATH\Views\system\matricula\matricula.php on line 25.
+ 1 APPPATH\Views\system\matricula\matricula.php(25): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "name"', 'C:\\laragon\\www\\SIARES\\app\\Views\\system\\matricula\\matricula.php', 25)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\laragon\\www\\SIARES\\app\\Views\\system\\matricula\\matricula.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('system/matricula/matricula', [], true)
+ 5 APPPATH\Controllers\MatriculaController.php(25): view('system/matricula/matricula', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\MatriculaController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MatriculaController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-08-08 22:17:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-08-08 22:17:31 --> ErrorException: Undefined array key "nombre"
+[Method: GET, Route: admin/matricula]
+in APPPATH\Views\system\matricula\matricula.php on line 15.
+ 1 APPPATH\Views\system\matricula\matricula.php(15): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nombre"', 'C:\\laragon\\www\\SIARES\\app\\Views\\system\\matricula\\matricula.php', 15)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\laragon\\www\\SIARES\\app\\Views\\system\\matricula\\matricula.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('system/matricula/matricula', [], true)
+ 5 APPPATH\Controllers\MatriculaController.php(25): view('system/matricula/matricula', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\MatriculaController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MatriculaController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-08-08 22:17:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-08-08 22:18:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

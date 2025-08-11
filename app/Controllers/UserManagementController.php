@@ -2,6 +2,7 @@
 namespace App\Controllers;
 
 use App\Models\UserManagementModel;
+use App\Models\MatriculaModel;
 use App\Models\ComboBoxModel;
 use CodeIgniter\HTTP\ResponseInterface;
 use App\Libraries\SendEmail;
@@ -12,36 +13,121 @@ use PhpOffice\PhpSpreadsheet\Style\Alignment;
 use PhpOffice\PhpSpreadsheet\Style\Fill;
 class UserManagementController extends BaseController
 {
-    public function index()
+public function index()
     {
         $userModel = new UserManagementModel();
         $roleModel = new ComboBoxModel();
 
         $data = [
-
             'users' => $userModel->getUsers() ?? [],
-            'roles' => $roleModel->getTableData('roles') ?? []
+            'roles' => $roleModel->getTableData('roles') ?? [],
+            'jornadas' => $roleModel->getTableData('jornadas') ?? [],
+            'grados' => $roleModel->getTableData('grados') ?? []
+
+
         ];
 
         return view('security/UserManagement/UserManagement', $data);
+}
+public function showComboBox()
+{
+    $tabla = $this->request->getPost('tabla') ?? '';
+    $campo = $this->request->getPost('campo') ?? 'id';
+    $id    = $this->request->getPost('id') ?? ''; 
+
+    $model = new ComboBoxModel();
+    $result = $model->getById($tabla, $id, $campo);
+
+    return $this->response->setJSON($result);
+}
+
+public function addUser()
+{
+    log_message('debug', 'Entrando a addUser()');
+
+    $postData = $this->request->getPost();
+    log_message('debug', 'POST recibido: {post}', [
+        'post' => json_encode($postData)
+    ]);
+
+    $rules = [
+        'name'             => 'required|min_length[2]|max_length[70]',
+        'documento'        => 'required|numeric|min_length[5]|max_length[20]|is_unique[users.documento]',
+        'email'            => 'required|valid_email|is_unique[users.email]',
+        'telefono'         => 'permit_empty|min_length[7]|max_length[20]',
+        'direccion'        => 'permit_empty|max_length[100]',
+        'genero'           => 'required|in_list[MASCULINO,FEMENINO]',
+        'fecha_nacimiento' => 'required|valid_date',
+        'role_id'          => 'required|integer',
+        'jornada'          => 'required|integer',
+        'grado'            => 'required|integer',
+        'grupo'            => 'required|integer',
+        'fecha_matricula'  => 'required|valid_date',
+        'status'           => 'required|in_list[active,inactive]',
+    ];
+
+    if (!$this->validate($rules)) {
+        $errors = $this->validator->getErrors();
+        log_message('error', 'Errores de validación: {errors}', [
+            'errors' => json_encode($errors)
+        ]);
+        return redirect()->back()->withInput()->with('errors-insert', $errors);
     }
 
-    public function show($id)
-    {
-        $userModel = new UsermanagementModel();
-        $user = $userModel->find($id);
+    // Extraer solo los campos necesarios para users
+    $userData = [
+        'name'             => $postData['name'],
+        'documento'        => $postData['documento'],
+        'email'            => $postData['email'],
+        'telefono'         => $postData['telefono'] ?? null,
+        'direccion'        => $postData['direccion'] ?? null,
+        'genero'           => $postData['genero'],
+        'fecha_nacimiento' => $postData['fecha_nacimiento'],
+        'role_id'          => $postData['role_id'],
+        'status'           => $postData['status'],
+    ];
 
-        if ($user) {
-            return $this->response->setJSON($user);
-        } else {
-            return $this->response->setStatusCode(ResponseInterface::HTTP_NOT_FOUND)
-                ->setJSON(['status' => 'error', 'message' => 'Usuario no encontrado']);
-        }
+    log_message('debug', 'Datos para insertar usuario: {data}', [
+        'data' => json_encode($userData)
+    ]);
+
+    $userModel = new UserManagementModel();
+
+    if (!$userModel->insert($userData)) {
+        $errors = $userModel->errors();
+        log_message('error', 'Error al insertar usuario: {errors}', [
+            'errors' => json_encode($errors)
+        ]);
+        return redirect()->back()->withInput()->with('errors-insert', $errors);
     }
 
+    $userId = $userModel->getInsertID();
+    log_message('debug', 'Usuario insertado correctamente con ID: {id}', ['id' => $userId]);
+
+    // Preparar datos para matrícula
+    $matriculaData = [
+        'estudiante_id'          => $userId,
+        'jornada_id'          => $postData['jornada'],
+        'grupo_id'            => $postData['grupo'],
+        'fecha_matricula' => date('Y-m-d', strtotime($postData['fecha_matricula'])),
+    ];
+
+    $matriculaModel = new MatriculaModel();
+
+    if (!$matriculaModel->insert($matriculaData)) {
+        $errors = $matriculaModel->errors();
+        log_message('error', 'Error al insertar matrícula: {errors}', [
+            'errors' => json_encode($errors)
+        ]);
+        return redirect()->back()->withInput()->with('errors-insert', $errors);
+    }
+
+    log_message('debug', 'Matrícula insertada correctamente para el usuario ID: {id}', ['id' => $userId]);
+
+    return redirect()->to('/admin/usermanagement')->with('success', 'User added successfully');
+}
 
 
-    
 public function exportToExcel()
 {
     $userModel = new UserManagementModel();
@@ -105,122 +191,13 @@ public function exportToExcel()
         ->setHeader('Cache-Control', 'max-age=0')
         ->setBody($this->getSpreadsheetContent($writer));
 }
-
-    private function getSpreadsheetContent($writer)
+private function getSpreadsheetContent($writer)
     {
         ob_start();
         $writer->save('php://output');
         return ob_get_clean();
-    }
-    public function addUser()
-    {
-        log_message('info', 'Iniciando el método addUser()');
-
-        $validation = \Config\Services::validation();
-        $model = new UserManagementModel();
-
-        // Definir reglas de validación
-        $rules = [
-            'name' => 'required|min_length[2]|max_length[70]',
-            'last_name' => 'required|min_length[2]|max_length[80]',
-            'identification' => 'required|numeric|min_length[5]|max_length[20]|is_unique[users.identification]',
-            'email' => 'required|valid_email|max_length[100]|is_unique[users.email]',
-            'phone' => 'required|numeric|min_length[8]|max_length[15]',
-            'address' => 'required|max_length[100]',
-            'status' => 'required|in_list[active,inactive]',
-        ];
-
-        log_message('info', 'Reglas de validación definidas.');
-
-        // Validar los datos
-        if (!$this->validate($rules)) {
-            log_message('error', 'Error en la validación de datos: ' . json_encode($validation->getErrors()));
-            return redirect()->back()->withInput()->with('errors-insert', $validation->getErrors());
-        }
-
-        log_message('info', 'Validación exitosa.');
-
-        // Recoger los datos del formulario
-        $data = [
-            'name' => $this->request->getPost('name'),
-            'last_name' => $this->request->getPost('last_name'),
-            'identification' => $this->request->getPost('identification'),
-            'phone' => $this->request->getPost('phone'),
-            'address' => $this->request->getPost('address'),
-            'email' => $this->request->getPost('email'),
-            'role_id' => '1',
-            'status' => $this->request->getPost('status'),
-            'password_hash' => password_hash("SCOPECAPITAL2025", PASSWORD_DEFAULT),
-        ];
-
-        log_message('info', 'Datos recogidos del formulario: ' . json_encode($data));
-
-        try {
-            // Insertar en la base de datos
-            $model->insert($data);
-        
-            // Crear el objeto SendEmail
-            $email = new SendEmail();
-        
-            // Ruta de la imagen
-            // $attachment = [
-            //     'path' => FCPATH . 'img/logo_small.png',
-            //     'type' => 'image/x-icon',
-            //     'name' => 'logo_small.png',
-            //     'inline' => true
-            // ];        
-            // Crear mensaje con CID
- $message = '
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Welcome to Scope Capital</title>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap" rel="stylesheet">
-    <link href="' . base_url('assets/fontawesome-free/css/all.min.css') . '" rel="stylesheet" type="text/css">
-</head>
-<body style="font-family: Nunito, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; background-color: #f5f7fa; padding: 20px; color: #333;">
-    <div style="max-width: 600px; margin: auto; background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 0 10px rgba(0,0,0,0.05);">
-        <div style="background-color: #192229; color: #F1C40F; padding: 20px; text-align: center;">
-            <img src="https://i.imgur.com/ZQcJdWg.png" style="max-height: 60px; margin-bottom: 10px;">
-            <h2 style="margin: 0;">👋 Welcome to Scope Capital</h2>
-        </div>
-        <div style="padding: 30px;">
-            <p>Hello <strong>' . esc($data['name']) . ' ' . esc($data['last_name']) . '</strong>,</p>
-            <p>Your account has been successfully created. Here are your login credentials:</p>
-            <ul style="list-style: none; padding: 0;">
-                <li><strong>📧 Username:</strong> ' . esc($data['email']) . '</li>
-                <li><strong>🔒 Password:</strong> SCOPECAPITAL2025</li>
-            </ul>
-            <p>You can log in by clicking the button below:</p>
-            <p style="text-align: center;">
-                <a href="' . base_url('login') . '" style="background-color: #F1C40F; color: white; padding: 12px 25px; border-radius: 5px; text-decoration: none; font-weight: bold;">Log In</a>
-            </p>
-            <p style="margin-top: 30px;">Thank you for trusting us,</p>
-            <p>The Scope Capital Team</p>
-        </div>
-        <div style="background-color: #192229; text-align: center; padding: 15px; font-size: 12px; color: #F1C40F;">
-            © ' . date("Y") . ' Scope Capital. All rights reserved.
-        </div>
-    </div>
-</body>
-</html>';
-
-
-            
-        
-            // Enviar el correo
-$email->send(to: $data['email'], subject: 'Welcome to Scope Capital', message: $message);
-        
-       return redirect()->to('/admin/usermanagement')->with('success', 'User added successfully');
-} catch (\Exception $e) {
-    log_message('error', 'Error adding user: ' . $e->getMessage());
-    return redirect()->to('/admin/usermanagement')->with('error', 'Error adding the user');
 }
-
-        
-    }
-    public function updateUser($id)
+public function updateUser($id)
     {
         log_message('info', 'Starting updateUser() method for user ID: ' . $id);
         
@@ -273,9 +250,8 @@ $email->send(to: $data['email'], subject: 'Welcome to Scope Capital', message: $
             log_message('error', 'Database error: ' . $e->getMessage());
             return redirect()->back()->withInput()->with('errors-insert', ['db_error' => 'An error occurred while updating the user.']);
         }
-    }
-    
-    public function deleteUser($id)
+}  
+public function deleteUser($id)
 {
     $userModel = new UserManagementModel();
     try {
@@ -296,6 +272,20 @@ $email->send(to: $data['email'], subject: 'Welcome to Scope Capital', message: $
         return redirect()->to('/admin/usermanagement')->with('error', 'An error occurred while trying to delete the user.');
     }
 }
+public function getUserById($id)
+    {
+        log_message('info', 'Iniciando el método getUserById() con ID: ' . $id);
+        $model = new UserManagementModel();
+        $user = $model->find($id);
 
-    
+        if ($user) {
+            log_message('info', 'Usuario encontrado: ' . json_encode($user));
+            return $this->response->setJSON($user);
+        } else {
+            log_message('error', 'Usuario no encontrado con ID: ' . $id);
+            return $this->response->setStatusCode(ResponseInterface::HTTP_NOT_FOUND)
+          ->setJSON(['status' => 'error', 'message' => 'User not found']);
+
+        }
+}    
 }

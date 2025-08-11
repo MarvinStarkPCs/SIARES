@@ -41,7 +41,7 @@ class CreateUsersTable extends Migration
             ],
             'genero' => [
                 'type'       => 'ENUM',
-                'constraint' => ['M', 'F', 'Otro'],
+                'constraint' => ['MASCULINO', 'FEMENINO', 'Otro'],
                 'null'       => true,
             ],
             'fecha_nacimiento' => [

@@ -6,7 +6,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: #FEC659;
+    background: #296221;
     justify-content: center;
     align-items: center;
     z-index: 1000;
@@ -25,9 +25,9 @@
     transform: translate(-50%, -50%);
     width: 150px;
     height: 150px;
-    background: url('/img/logo.ico') no-repeat center/contain;
+    background: url('/SIARES/img/logo colegio_1.png') no-repeat center/contain;
     animation: pulse 1.5s infinite;
-    box-shadow: 0 0 30px #FEC659; /* Sombra con el color #192229 */
+    box-shadow: 0 0 30px #EFEFE1; /* Sombra con el color #192229 */
     border-radius: 50%; /* Asegura que la sombra sea redonda */
     z-index: 2;
   }
