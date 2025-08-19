@@ -106,7 +106,7 @@ $routes->group('admin', ['filter' => 'auth'], function ($routes) {
     $routes->post('usermanagement/update/(:num)', 'UserManagementController::updateUser/$1'); // Actualizar usuario
     $routes->get('usermanagement/delete/(:num)', 'UserManagementController::deleteUser/$1'); // Eliminar usuario
     $routes->get('usermanagement/excel', 'UserManagementController::exportToExcel'); // Exportar a Excel
-    $routes->post('usermanagement/getClient/(:num)', 'UserManagementController::getUserById/$1'); // Actualizar usuario
+    $routes->post('usermanagement/getInfoUser/(:num)', 'UserManagementController::getInfoUser/$1'); // Actualizar usuario
     $routes->post('usermanagement/showComboBox', 'UserManagementController::showComboBox');
 
 

@@ -52,6 +52,36 @@ protected $allowedFields = [
         return $this->where('id', $id)->first();
     }
 
+ public function getMatriculaByEstudiante($estudianteId)
+    {
+        return $this->db->table('matriculas m')
+            ->select('
+                m.id AS matricula_id,
+                m.fecha_matricula,
+                u.id AS estudiante_id,
+                u.name AS estudiante,
+                u.documento,
+                u.email,
+                u.telefono,
+                u.direccion,
+                u.genero,
+               r.name as role,
+                u.fecha_nacimiento,
+                u.estado,
+                gra.nombre AS grado,
+                gru.nombre AS grupo,
+                j.nombre AS jornada
+            ')
+            ->join('users u', 'm.estudiante_id = u.id')
+            ->join('grupos gru', 'm.grupo_id = gru.id')
+            ->join('grados gra', 'gru.grado_id = gra.id')
+            ->join('jornadas j', 'm.jornada_id = j.id')
+            ->join('roles r', 'u.role_id = r.id')
+            ->get()
+            ->getRow(); // devuelve un solo registro
+    }
+
+    
     public function updateUserBalance($documento, $newBalance)
     {
         return $this->set('balance', $newBalance)

@@ -76,6 +76,9 @@
         </div>
     </div>
 </div>
+<script>
+    
+</script>
 <?= view('security/UserManagement/modals/Create') ?>
 <?= view('security/UserManagement/modals/Delete') ?>
 <?= view('security/UserManagement/modals/Detail') ?>

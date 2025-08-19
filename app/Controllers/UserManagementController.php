@@ -272,11 +272,12 @@ public function deleteUser($id)
         return redirect()->to('/admin/usermanagement')->with('error', 'An error occurred while trying to delete the user.');
     }
 }
-public function getUserById($id)
+public function getInfoUser($id)
     {
+
         log_message('info', 'Iniciando el método getUserById() con ID: ' . $id);
         $model = new UserManagementModel();
-        $user = $model->find($id);
+        $user = $model->getMatriculaByEstudiante($id);
 
         if ($user) {
             log_message('info', 'Usuario encontrado: ' . json_encode($user));

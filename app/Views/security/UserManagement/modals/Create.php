@@ -50,7 +50,7 @@
 
                 <!-- Email -->
                 <div class="form-group col-md-4">
-                  <label for="inputEmail">Email</label>
+                  <label for="inputEmail">Correo</label>
                   <input type="email" class="form-control <?= session('errors-insert.email') ? 'is-invalid errors-insert' : '' ?>" 
                          id="inputEmail" name="email" value="<?= esc(old('email')) ?>" placeholder="Email">
                   <?= session('errors-insert.email') ? '<div class="invalid-feedback">' . esc(session('errors-insert.email')) . '</div>' : '' ?>
@@ -128,7 +128,7 @@
 
                 <div class="form-group col-md-4">
                   <label for="grado">Grado</label>
-                  <select class="form-control select2" id="grado" name="grado">
+                  <select class="form-control select2" id="gradoFormNew" name="gradoFormNew">
                     <option value="">Selecciona...</option>
                     <?php foreach ($grados as $grado): ?>
                         <option value="<?= esc($grado['id']) ?>" <?= old('grado') == $grado['id'] ? 'selected' : '' ?>>
@@ -139,8 +139,8 @@
                 </div>
 
                 <div class="form-group col-md-4">
-                  <label for="grupo">Grupo</label>
-                  <select class="form-control select2" id="grupo" name="grupo">
+                  <label for="grupoFormNew">Grupo</label>
+                  <select class="form-control select2" id="grupoFormNew" name="grupoFormNew">
                     <option value="">Selecciona...</option>
                   </select>
                 </div>
@@ -188,7 +188,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Función: Cargar grupos por grado
     function cargarGruposPorGrado(gradoId) {
-        const grupoSelect = $('#grupo');
+        const grupoSelect = $('#grupoFormNew');
         grupoSelect.empty().append('<option value="">Cargando...</option>');
 
         if (!gradoId || gradoId.trim() === '') {
@@ -220,7 +220,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Evento: cambio de grado
-    $('#grado').on('change', function () {
+    $('#gradoFormNew').on('change', function () {
         cargarGruposPorGrado($(this).val());
     });
 
