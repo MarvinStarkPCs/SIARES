@@ -60,10 +60,10 @@ class UserManagementController extends BaseController
             'genero'           => 'required|in_list[MASCULINO,FEMENINO]',
             'fecha_nacimiento' => 'required|valid_date',
             'role_id'          => 'required|integer',
-            'jornada'          => 'required|integer',
-            'gradoFormNew'            => 'required|integer',
-            'grupoFormNew'            => 'required|integer',
-            'fecha_matricula'  => 'required|valid_date',
+            // 'jornada'          => 'required|integer',
+            // 'gradoFormNew'            => 'required|integer',
+            // 'grupoFormNew'            => 'required|integer',
+            // 'fecha_matricula'  => 'required|valid_date',
             'status'           => 'required|in_list[active,inactive]',
         ];
 
@@ -86,6 +86,8 @@ class UserManagementController extends BaseController
             'fecha_nacimiento' => $postData['fecha_nacimiento'],
             'role_id'          => $postData['role_id'],
             'status'           => $postData['status'],
+            'password'         => password_hash('admin123*', PASSWORD_DEFAULT)
+
         ];
 
         log_message('debug', 'Datos para insertar usuario: {data}', [
