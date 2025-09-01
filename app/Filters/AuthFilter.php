@@ -25,12 +25,16 @@ class AuthFilter implements FilterInterface
         $segmento = $uri->getSegment(1); // Obtiene el primer segmento de la URL (admin o client)
 
         if ($segmento === 'admin' && $rol_id != 1) {
-            return redirect()->to('/estudiante/reporte-reciclaje')->with('error', 'No tienes permiso para acceder a esta sección.');; // Si intenta acceder a admin y no es admin, redirige a cliente
+            return redirect()->to('/admin/matricula')->with('error', 'No tienes permiso para acceder a esta sección.');; // Si intenta acceder a admin y no es admin, redirige a cliente
 
         }
 
-        if ($segmento === 'client' && $rol_id != 2) {
-            return redirect()->to('/admin/matricula')->with('error', 'No tienes permiso para acceder a esta sección.');
+        if ($segmento === 'estudiante' && $rol_id != 2) {
+            return redirect()->to('/estudiante/mi-reporte')->with('error', 'No tienes permiso para acceder a esta sección.');
+        }
+
+         if ($segmento === 'docente' && $rol_id != 3) {
+            return redirect()->to('/docente/matricula')->with('error', 'No tienes permiso para acceder a esta sección.');
         }
     }
 

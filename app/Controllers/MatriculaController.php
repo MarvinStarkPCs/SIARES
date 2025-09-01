@@ -20,7 +20,7 @@ public function index()
         'grupos'      => $comboModel->getTableData('grupos') ?? [],
     ];
 
-    return view('system/matricula/matricula', $data);
+    return view('admin/matricula/matricula', $data);
 }
 
 

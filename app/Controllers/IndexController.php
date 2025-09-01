@@ -13,7 +13,7 @@ class IndexController extends BaseController
         // Verifica si el usuario está logueado
         if ($session->get('login')) {
             // Redirige al usuario a la página principal
-            return redirect()->to('/admin/pqrsmanagement');
+            return redirect()->to('/login');
         } else {
             // Muestra la vista de login si no está logueado
             return view('index');

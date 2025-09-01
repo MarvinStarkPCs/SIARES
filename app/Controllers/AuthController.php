@@ -14,74 +14,98 @@ class AuthController extends BaseController
         $this->userModel = new UserModel();
     }
 
-    public function index()
-    {
-        $session = session();
-        $roleId = $session->get('role_id');
-        log_message('info', "Usuario autenticado con role_id: {$roleId}");
-        // Verifica si el usuario está autenticado
-        if (!$session->has('login')) {
-            return view('/auth/login'); // Si no está logueado, muestra la vista de login
-        }
-        // Redirige según el rol del usuario
-        return ($session->get('role_id') == 1)
-            ? redirect()->to('/admin/pqrsmanagement')
-            : redirect()->to('/client/dashboard');
+ public function index()
+{
+    $session = session();
+
+    // Verificamos si el usuario está autenticado
+    if (!$session->has('login')) {
+        return view('auth/login'); // 👈 aquí le quité la barra inicial innecesaria
     }
-  public function authenticate()
-    {
-        log_message('info', 'El método authenticate fue llamado');
+    // Obtenemos el rol
+    $roleId = $session->get('role_id');
+    log_message('info', "Usuario autenticado con role_id: {$roleId}");
 
-        $rules = [
-            'email' => [
-                'rules' => 'required|valid_email',
-                'errors' => [
-                    'required' => 'El campo de correo es obligatorio.',
-                    'valid_email' => 'Debes ingresar un correo válido.',
-                ],
+    // Redirige según el rol
+    switch ($roleId) {
+        case 1: // Administrador
+            return redirect()->to('/admin/matricula');
+        case 2: // Cliente
+            return redirect()->to('/estudiante/mi-reporte');
+        case 3: // Cliente
+            return redirect()->to('/docente/reciclaje');
+        default: // Rol no reconocido
+            log_message('warning', "Rol no reconocido: {$roleId}");
+            return redirect()->to('/logout');
+    }
+}
+
+public function authenticate()
+{
+    log_message('info', 'El método authenticate fue llamado');
+
+    // Reglas de validación
+    $rules = [
+        'email' => [
+            'rules' => 'required|valid_email',
+            'errors' => [
+                'required'    => 'El campo de correo es obligatorio.',
+                'valid_email' => 'Debes ingresar un correo válido.',
             ],
-            'password' => [
-                'rules' => 'required|min_length[8]',
-                'errors' => [
-                    'required' => 'El campo de contraseña es obligatorio.',
-                    'min_length' => 'La contraseña debe tener al menos 8 caracteres.',
-                ],
+        ],
+        'password' => [
+            'rules' => 'required|min_length[8]',
+            'errors' => [
+                'required'   => 'El campo de contraseña es obligatorio.',
+                'min_length' => 'La contraseña debe tener al menos 8 caracteres.',
             ],
-        ];
+        ],
+    ];
 
-        if (!$this->validate($rules)) {
-            return redirect()->back()
-                ->withInput()
-                ->with('error', implode('<br>', $this->validator->getErrors()));
-        }
-
-        $email = $this->request->getPost('email');
-        $password = $this->request->getPost('password');
-
-        $user = $this->userModel->login($email, $password);
-
-        if ($user) {
-            $session = session();
-            $session->set([
-                'login'   => true,
-                'id'      => $user['id'],
-                'name'    => $user['name'],
-                'email'   => $user['email'],
-                'role_id' => $user['role_id'],
-            ]);
-
-            log_message('info', 'Usuario autenticado: ' . $user['name']);
-
-            // Redirige según el rol
-            return ($user['role_id'] == 1)
-                ? redirect()->to('/admin/matricula')
-                : redirect()->to('/estudiante/reporte-reciclaje');
-        }
-
+    // Si no cumple reglas -> retorna con error
+    if (!$this->validate($rules)) {
         return redirect()->back()
             ->withInput()
-            ->with('error', 'Correo o contraseña incorrectos.');
+            ->with('error', implode('<br>', $this->validator->getErrors()));
     }
+
+    // Captura credenciales
+    $email = $this->request->getPost('email');
+    $password = $this->request->getPost('password');
+
+    // Busca usuario en BD
+    $user = $this->userModel->login($email, $password);
+
+    if ($user) {
+        // Configura sesión
+        $session = session();
+        $session->set([
+            'login'   => true,
+            'user_id'      => $user['id'],
+            'name'    => $user['name'],
+            'email'   => $user['email'],
+            'role_id' => $user['role_id'],
+        ]);
+
+        log_message('info', "Usuario autenticado: {$user['name']} con rol {$user['role_id']}");
+
+        // Rutas según rol
+        $roleRoutes = [
+            1 => '/admin/matricula',
+            2 => '/estudiante/mi-reporte',
+            3 => '/docente/reciclaje',
+        ];
+
+        // Redirige según rol o a login si no existe
+        return redirect()->to($roleRoutes[$user['role_id']] ?? '/login');
+    }
+
+    // Si no existe el usuario
+    return redirect()->back()
+        ->withInput()
+        ->with('error', 'Correo o contraseña incorrectos.');
+}
+
 
     public function recover()
     {

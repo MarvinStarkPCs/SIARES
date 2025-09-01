@@ -6,149 +6,119 @@
         </div>
     </a>
 
-  
-
-    <!-- Verificamos el role_id -->
+    <!-- ADMINISTRADOR -->
     <?php if (session()->get('role_id') == 1): ?>
-          <!-- Divider -->
-    <hr class="sidebar-divider my-0">
+        <hr class="sidebar-divider my-0">
 
-<!-- Nav Item - Dashboard -->
-<li class="nav-item active">
-    <a class="nav-link" href="<?= base_url('admin/dashboard'); ?>">
-        <i class="fas fa-fw fa-tachometer-alt"></i>
-        <span>Home</span></a>
-</li>
-
-<!-- Divider -->
-<hr class="sidebar-divider">
-        <!-- Items para Administrador -->
-        <div class="sidebar-heading">Interfaces</div>
-
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSystem" aria-expanded="true"
-                aria-controls="collapseSystem">
-                <i class="fas fa-fw fa-cog"></i>
-                <span>System</span>
+        <!-- Home -->
+        <li class="nav-item active">
+            <a class="nav-link" href="<?= base_url('admin/dashboard'); ?>">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>Home</span>
             </a>
-            <div id="collapseSystem" class="collapse" aria-labelledby="headingSystem" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">SYSTEM MANAGEMENT</h6>
-                    <a class="collapse-item" href="<?= base_url('admin/matricula'); ?>">
-                        <i class="fas fa-fw fa-cog"></i>MATIRCULA 
-                    </a>
-                    <!-- <a class="collapse-item" href="< ?= base_url('admin/transactions'); ?>">
-                        
-                        <i class="fas fa-university"></i> Pay
-                    </a>
-                    <a class="collapse-item" href="< ?= base_url('admin/clientmanagement'); ?>">
-                        <i class="fas fa-users"></i> clients
-                    </a> 
-               <a class="collapse-item" href="< ?= base_url('admin/extrasmanagement'); ?>">
-                        <i class="fas fa-tools"></i> Gestión de Extras
-                    </a>  -->
-                </div>
-            </div>
-        </li>
-        <!-- <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseHistory"
-            aria-expanded="true" aria-controls="collapseHistory">
-            <i class="fas fa-fw fa-history"></i> Icono de historia 
-            <span>History</span>
-        </a>
-        <div id="collapseHistory" class="collapse" aria-labelledby="headingHistory" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">HISTORY OF THE SYSTEM:</h6>
-                <a class="collapse-item" href="< ?= base_url('admin/historytransactions'); ?>" >
-                        <i class="fas fa-tasks"></i> History de transactions
-                    </a> -->
-                <!--
-                    <a class="collapse-item" href="< ?= base_url('asignaciones'); ?>">
-                        <i class="fas fa-calendar-alt"></i> Historial de asignaciones
-                    </a>
-
-                    <a class="collapse-item" href="< ?= base_url('dados-de-baja'); ?>">
-                        <i class="fas fa-trash-alt"></i> Historial Dados de Baja
-                    </a> 
-            </div>
-
-        </div>
-    </li>-->
-
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSecurity"
-                aria-expanded="true" aria-controls="collapseSecurity">
-                <i class="fas fa-fw fa-shield-alt"></i>
-                <span>Security</span>
-            </a>
-            <div id="collapseSecurity" class="collapse" aria-labelledby="headingSecurity" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">SECURITY SETTINGS:</h6>
-                    <a class="collapse-item" href="<?= base_url('admin/usermanagement'); ?>">
-                        <i class="fas fa-users-cog"></i> User Management
-                    </a>
-                    <a class="collapse-item" href="<?= base_url('admin/changepassword'); ?>">
-                        <i class="fas fa-key"></i> Change Password
-                    </a>
-                </div>
-            </div>
         </li>
 
+        <hr class="sidebar-divider">
+        <div class="sidebar-heading">Gestión</div>
+
+        <!-- Matricula -->
+        <li class="nav-item">
+            <a class="nav-link" href="<?= base_url('admin/matricula'); ?>">
+                <i class="fas fa-user-plus"></i>
+                <span>Matricula / Rematricula</span>
+            </a>
+        </li>
+
+        <!-- Reciclaje -->
+        <li class="nav-item">
+            <a class="nav-link" href="<?= base_url('admin/reciclaje'); ?>">
+                <i class="fas fa-recycle"></i>
+                <span>Reciclaje (Vista General)</span>
+            </a>
+        </li>
+
+        <!-- Usuarios -->
+        <li class="nav-item">
+            <a class="nav-link" href="<?= base_url('admin/usermanagement'); ?>">
+                <i class="fas fa-users-cog"></i>
+                <span>Gestión de Usuarios</span>
+            </a>
+        </li>
+
+        <!-- Seguridad -->
+        <li class="nav-item">
+            <a class="nav-link" href="<?= base_url('admin/changepassword'); ?>">
+                <i class="fas fa-key"></i>
+                <span>Cambiar Contraseña</span>
+            </a>
+        </li>
+
+
+    <!-- ESTUDIANTE -->
     <?php elseif (session()->get('role_id') == 2): ?>
         <hr class="sidebar-divider my-0">
 
-<!-- Nav Item - Dashboard -->
-<li class="nav-item active">
-    <a class="nav-link" href="<?= base_url('client/dashboard'); ?>">
-        <i class="fas fa-fw fa-tachometer-alt"></i>
-        <span>Home</span></a>
-</li>
-
-<!-- Divider -->
-<hr class="sidebar-divider">
-         <!-- Items para Administrador -->
-         <div class="sidebar-heading">Interfaces</div>
-
-<!-- <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSystem" aria-expanded="true"
-        aria-controls="collapseSystem">
-        <i class="fas fa-fw fa-cog"></i>
-        <span>System</span>
-    </a>
-    <div id="collapseSystem" class="collapse" aria-labelledby="headingSystem" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">SYSTEM MANAGEMENT</h6>
-            <a class="collapse-item" href="< ?= base_url('client/pqrs-sent/view'); ?>">
-                <i class="fas fa-fw fa-cog"></i> PQRS
+        <!-- Home -->
+        <li class="nav-item active">
+            <a class="nav-link" href="<?= base_url('estudiante/dashboard'); ?>">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>Home</span>
             </a>
-            <a class="collapse-item" href="< ?= base_url('client/historytransactions/detail/' . session('id_user')); ?>">
-    <i class="fas fa-exchange-alt"></i> Transactions
-</a>
+        </li>
 
-        </div>
-    </div>
-</li> -->
+        <hr class="sidebar-divider">
+        <div class="sidebar-heading">Reciclaje</div>
 
-<li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSecurity"
-        aria-expanded="true" aria-controls="collapseSecurity">
-        <i class="fas fa-fw fa-shield-alt"></i>
-        <span>Security</span>
-    </a>
-    <div id="collapseSecurity" class="collapse" aria-labelledby="headingSecurity" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">SECURITY SETTINGS:</h6>
-           
-            <a class="collapse-item" href="<?= base_url('client/changepassword'); ?>">
-                <i class="fas fa-key"></i> Change Password
+        <!-- Consultar material reciclado -->
+        <li class="nav-item">
+            <a class="nav-link" href="<?= base_url('estudiante/mi-reporte'); ?>">
+                <i class="fas fa-search"></i>
+                <span>Ver Material Reciclado</span>
             </a>
-        </div>
-    </div>
-</li>
+        </li>
 
+        <!-- Seguridad -->
+        <li class="nav-item">
+            <a class="nav-link" href="<?= base_url('estudiante/changepassword'); ?>">
+                <i class="fas fa-key"></i>
+                <span>Cambiar Contraseña</span>
+            </a>
+        </li>
+
+
+    <!-- DOCENTE -->
+    <?php elseif (session()->get('role_id') == 3): ?>
+        <hr class="sidebar-divider my-0">
+
+        <!-- Home -->
+        <li class="nav-item active">
+            <a class="nav-link" href="<?= base_url('docente/dashboard'); ?>">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>Home</span>
+            </a>
+        </li>
+
+        <hr class="sidebar-divider">
+        <div class="sidebar-heading">Reciclaje</div>
+
+        <!-- Registrar material reciclado -->
+        <li class="nav-item">
+            <a class="nav-link" href="<?= base_url('docente/reciclaje'); ?>">
+                <i class="fas fa-plus-circle"></i>
+                <span>Registrar Material</span>
+            </a>
+        </li>
+
+        <!-- Seguridad -->
+        <li class="nav-item">
+            <a class="nav-link" href="<?= base_url('docente/changepassword'); ?>">
+                <i class="fas fa-key"></i>
+                <span>Cambiar Contraseña</span>
+            </a>
+        </li>
     <?php endif; ?>
 
-    <!-- Divider -->
+
     <hr class="sidebar-divider">
 
     <!-- Sidebar Toggler -->

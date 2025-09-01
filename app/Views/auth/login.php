@@ -154,4 +154,5 @@
     <!-- Custom alerts -->
     <script src="<?= base_url('js/demo/alert_custom.js') ?>"></script>
 </body>
+
 </html>

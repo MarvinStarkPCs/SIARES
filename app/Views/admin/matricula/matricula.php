@@ -2,20 +2,23 @@
 
 <?= $this->section('content') ?>
 <div class="container mt-4">
+
     <h2 class="mb-4">Registrar Matrícula</h2>
     <form action="<?= base_url('matriculas/store') ?>" method="post">
         <?= csrf_field() ?>
 
         <div class="row">
-            <div class="col-md-6 mb-3">
-                <label for="estudiante_id" class="form-label">Estudiante</label>
-                <select nombre="estudiante_id" id="estudiante_id" class="form-control select2" required>
-                    <option value="">Seleccione un estudiante</option>
-                    <?php foreach ($estudiantes as $estudiante): ?>
-                        <option value="<?= $estudiante['id'] ?>"><?= $estudiante['name'] ?></option>
-                    <?php endforeach; ?>
-                </select>
-            </div>
+         <div class="col-md-6 mb-3">
+    <label for="estudiante_id" class="form-label">Estudiante(Escriba Documento o Nombre)</label>
+    <select name="estudiante_id[]" id="estudiante_id" class="form-control select2" multiple="multiple" required>
+        <?php foreach ($estudiantes as $estudiante): ?>
+            <option value="<?= $estudiante['id'] ?>">
+                <?= $estudiante['name'] . ' - ' . $estudiante['documento'] ?>
+            </option>
+        <?php endforeach; ?>
+    </select>
+</div>
+
 
             <div class="col-md-6 mb-3">
                 <label for="jornada_id" class="form-label">Jornada</label>
