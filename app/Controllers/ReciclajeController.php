@@ -178,4 +178,21 @@ public function guardarMateriales()
             'periodoId'  => $periodoId
         ]);
     }
+
+
+      public function filtros(){
+   $userModel = new UserManagementModel();
+        $combobox = new ComboBoxModel();
+
+ $data = [
+            'grupos' => $combobox->getTableData('grupos') ?? [],
+            'grados' => $combobox->getTableData('grados') ?? [],
+            'jornadas' => $combobox->getTableData('jornadas') ?? [],
+        ];
+
+
+        return view('admin/reporte_filtro',  $data);
+
+
+    }
 }

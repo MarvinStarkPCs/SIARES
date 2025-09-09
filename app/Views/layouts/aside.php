@@ -37,6 +37,14 @@
             </a>
         </li>
 
+          <li class="nav-item">
+            <a class="nav-link" href="<?= base_url('admin/reciclaje/filtro'); ?>">
+                <i class="fas fa-search"></i>
+                <span>Material Reciclado filtros</span>
+            </a>
+        </li>
+
+
         <!-- Usuarios -->
         <li class="nav-item">
             <a class="nav-link" href="<?= base_url('admin/usermanagement'); ?>">

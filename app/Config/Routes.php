@@ -33,6 +33,8 @@ $routes->group('admin', ['filter' => 'auth'], function ($routes) {
     $routes->get('reciclaje/buscar/(:segment)', 'ReciclajeController::buscar/$1'); // Guardar reciclaje
         $routes->post('matriculas/store', 'MatriculaController::store'); // guarda en la BD
 
+    $routes->get('reciclaje/filtro', 'ReciclajeController::filtros'); // Registrar material reciclado
+
     $routes->post('reciclaje/save', 'ReciclajeController::save'); // Guardar reciclaje
     $routes->post('usermanagement/update/(:num)', 'UserManagementController::updateUser/$1');
     $routes->post('usermanagement/showComboBox', 'UserManagementController::showComboBox');
