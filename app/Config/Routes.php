@@ -24,15 +24,19 @@ $routes->group('admin', ['filter' => 'auth'], function ($routes) {
     $routes->get('dashboard', 'HomeController::index');
     $routes->get('matricula', 'MatriculaController::index');
     $routes->get('usermanagement', 'UserManagementController::index');
-        $routes->post('usermanagement/add', 'UserManagementController::addUser');
+    $routes->post('usermanagement/add', 'UserManagementController::addUser');
 
     $routes->get('usermanagement/edit/(:num)', 'UserManagementController::editUser/$1');
     $routes->get('usermanagement/detail/(:num)', 'UserManagementController::detailUser/$1');
+    
     $routes->get('reciclaje', 'ReciclajeController::reporte_reciclaje_general'); // Registrar material reciclado
     $routes->get('reciclaje/buscar/(:segment)', 'ReciclajeController::buscar/$1'); // Guardar reciclaje
+        $routes->post('matriculas/store', 'MatriculaController::store'); // guarda en la BD
+
     $routes->post('reciclaje/save', 'ReciclajeController::save'); // Guardar reciclaje
     $routes->post('usermanagement/update/(:num)', 'UserManagementController::updateUser/$1');
     $routes->post('usermanagement/showComboBox', 'UserManagementController::showComboBox');
+    $routes->get('profile', 'ProfileController::index');
 
     $routes->get('changepassword', 'ChangePasswordController::index');
     $routes->post('changepassword/update', 'ChangePasswordController::updatePassword');
@@ -49,6 +53,7 @@ $routes->group('estudiante', ['filter' => 'auth'], function ($routes) {
     $routes->get('changepassword', 'ChangePasswordController::index');
     $routes->post('changepassword/update', 'ChangePasswordController::update');
     $routes->get('mi-reporte', 'ReciclajeController::reporte_reciclaje');
+    $routes->get('profile', 'ProfileController::index');
 
 });
 
@@ -62,5 +67,10 @@ $routes->group('docente', ['filter' => 'auth'], function ($routes) {
     $routes->post('reciclaje/guardar', 'ReciclajeController::guardar'); // Guardar reciclaje
     $routes->get('changepassword', 'ChangePasswordController::index');
     $routes->post('changepassword/update', 'ChangePasswordController::update');
+    $routes->get('reciclaje/getEstudiantes', 'ReciclajeController::getEstudiantes');
+    $routes->post('reciclaje/guardarMateriales', 'ReciclajeController::guardarMateriales');
+
+    $routes->get('profile', 'ProfileController::index');
+
 });
 

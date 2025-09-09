@@ -14,6 +14,8 @@ class UserModel extends Model
         'genero', 'fecha_nacimiento', 'estado', 'password', 'role_id',
         'created_at', 'updated_at'
     ];
+     protected $createdField  = 'created_at';
+    protected $updatedField  = 'updated_at';
 
     protected $useTimestamps = false; // Cámbialo a true si quieres que se gestionen automáticamente
 
@@ -32,4 +34,6 @@ class UserModel extends Model
 
         return false; // Contraseña incorrecta
     }
+
+    
 }

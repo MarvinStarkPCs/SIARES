@@ -8,14 +8,19 @@ class GradosGruposSeeder extends Seeder
 {
     public function run()
     {
-        $grados = [
-            'Grado 6',
-            'Grado 7',
-            'Grado 8',
-            'Grado 9',
-            'Grado 10',
-            'Grado 11',
-        ];
+       $grados = [
+    'Primero',
+    'Segundo',
+    'Tercero',
+    'Cuarto',
+    'Quinto',
+    'Sexto',
+    'Séptimo',
+    'Octavo',
+    'Noveno',
+    'Décimo',
+    'Undécimo',
+];
 
         foreach ($grados as $grado) {
             // Insertar grado
@@ -27,9 +32,9 @@ class GradosGruposSeeder extends Seeder
             $gradoId = $this->db->insertID(); // ID del grado recién creado
 
             // Insertar 10 grupos para cada grado
-            for ($i = 1; $i <= 10; $i++) {
+            for ($i = 1; $i <= 4; $i++) {
                 $this->db->table('grupos')->insert([
-                    'nombre'     => 'Grupo ' . $i,
+                    'nombre'     =>  $i,
                     'grado_id'   => $gradoId,
                     'created_at' => date('Y-m-d H:i:s')
                 ]);

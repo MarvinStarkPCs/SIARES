@@ -7,6 +7,7 @@ class ComboBoxModel extends Model
     protected $returnType = 'array';
 
     protected $DBGroup = 'default';
+    
 
     public function getTableData($tablaName, $exclusions = [])
     {
@@ -38,6 +39,16 @@ public function getById($table, $id, $field = 'id')
         ->get()
         ->getResultArray();
 }
+
+
+  public function getGradosGrupos()
+    {
+        return $this->db->table('grupos gu')
+            ->select('gu.id as id_grupo, CONCAT(ga.nombre, "-", gu.nombre) as grados_grupos')
+            ->join('grados ga', 'gu.grado_id = ga.id')
+            ->get()
+            ->getResultArray();
+    }
 
 
 

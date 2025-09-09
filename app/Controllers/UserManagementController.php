@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\UserManagementModel;
 use App\Models\MatriculaModel;
 use App\Models\ComboBoxModel;
+use App\Models\GruposAsignacionModel;
 use CodeIgniter\HTTP\ResponseInterface;
 use App\Libraries\SendEmail;
 use CodeIgniter\Database\Exceptions\DatabaseException;
@@ -23,6 +24,7 @@ class UserManagementController extends BaseController
         $data = [
             'users' => $userModel->getUsers() ?? [],
             'roles' => $roleModel->getTableData('roles') ?? [],
+            'grados_grupos' => $roleModel->getGradosGrupos() ?? [],
             'jornadas' => $roleModel->getTableData('jornadas') ?? [],
             'grados' => $roleModel->getTableData('grados') ?? []
 
@@ -42,79 +44,78 @@ class UserManagementController extends BaseController
         return $this->response->setJSON($result);
     }
 
-    public function addUser()
-    {
-        log_message('debug', 'Entrando a addUser()');
+  public function addUser()
+{
+    log_message('debug', 'Entrando a addUser()');
 
-        $postData = $this->request->getPost();
-        log_message('debug', 'POST recibido: {post}', [
-            'post' => json_encode($postData)
+    $postData = $this->request->getPost();
+    log_message('debug', 'POST recibido: {post}', [
+        'post' => json_encode($postData)
+    ]);
+
+    $rules = [
+        'name'             => 'required|min_length[2]|max_length[70]',
+        'documento'        => 'required|numeric|min_length[5]|max_length[20]|is_unique[users.documento]',
+        'email'            => 'required|valid_email|is_unique[users.email]',
+        'telefono'         => 'permit_empty|min_length[7]|max_length[20]',
+        'direccion'        => 'permit_empty|max_length[100]',
+        'genero'           => 'required|in_list[MASCULINO,FEMENINO]',
+        'fecha_nacimiento' => 'required|valid_date',
+        'role_id'          => 'required|integer',
+        'status'           => 'required|in_list[active,inactive]',
+    ];
+
+    if (!$this->validate($rules)) {
+        $errors = $this->validator->getErrors();
+        log_message('error', 'Errores de validación: {errors}', [
+            'errors' => json_encode($errors)
         ]);
+        return redirect()->back()->withInput()->with('errors-insert', $errors);
+    }
 
-        $rules = [
-            'name'             => 'required|min_length[2]|max_length[70]',
-            'documento'        => 'required|numeric|min_length[5]|max_length[20]|is_unique[users.documento]',
-            'email'            => 'required|valid_email|is_unique[users.email]',
-            'telefono'         => 'permit_empty|min_length[7]|max_length[20]',
-            'direccion'        => 'permit_empty|max_length[100]',
-            'genero'           => 'required|in_list[MASCULINO,FEMENINO]',
-            'fecha_nacimiento' => 'required|valid_date',
-            'role_id'          => 'required|integer',
-            // 'jornada'          => 'required|integer',
-            // 'gradoFormNew'            => 'required|integer',
-            // 'grupoFormNew'            => 'required|integer',
-            // 'fecha_matricula'  => 'required|valid_date',
-            'status'           => 'required|in_list[active,inactive]',
-        ];
+    // Extraer solo los campos necesarios para users
+    $userData = [
+        'name'             => $postData['name'],
+        'documento'        => $postData['documento'],
+        'email'            => $postData['email'],
+        'telefono'         => $postData['telefono'] ?? null,
+        'direccion'        => $postData['direccion'] ?? null,
+        'genero'           => $postData['genero'],
+        'fecha_nacimiento' => $postData['fecha_nacimiento'],
+        'role_id'          => $postData['role_id'],
+        'status'           => $postData['status'],
+        'password'         => password_hash('admin123*', PASSWORD_DEFAULT)
+    ];
 
-        if (!$this->validate($rules)) {
-            $errors = $this->validator->getErrors();
-            log_message('error', 'Errores de validación: {errors}', [
-                'errors' => json_encode($errors)
-            ]);
-            return redirect()->back()->withInput()->with('errors-insert', $errors);
-        }
+    log_message('debug', 'Datos para insertar usuario: {data}', [
+        'data' => json_encode($userData)
+    ]);
 
-        // Extraer solo los campos necesarios para users
-        $userData = [
-            'name'             => $postData['name'],
-            'documento'        => $postData['documento'],
-            'email'            => $postData['email'],
-            'telefono'         => $postData['telefono'] ?? null,
-            'direccion'        => $postData['direccion'] ?? null,
-            'genero'           => $postData['genero'],
-            'fecha_nacimiento' => $postData['fecha_nacimiento'],
-            'role_id'          => $postData['role_id'],
-            'status'           => $postData['status'],
-            'password'         => password_hash('admin123*', PASSWORD_DEFAULT)
+    $userModel = new UserManagementModel();
 
-        ];
-
-        log_message('debug', 'Datos para insertar usuario: {data}', [
-            'data' => json_encode($userData)
+    if (!$userModel->insert($userData)) {
+        $errors = $userModel->errors();
+        log_message('error', 'Error al insertar usuario: {errors}', [
+            'errors' => json_encode($errors)
         ]);
+        return redirect()->back()->withInput()->with('errors-insert', $errors);
+    }
 
-        $userModel = new UserManagementModel();
+    $userId = $userModel->getInsertID();
+    log_message('debug', 'Usuario insertado correctamente con ID: {id}', ['id' => $userId]);
 
-        if (!$userModel->insert($userData)) {
-            $errors = $userModel->errors();
-            log_message('error', 'Error al insertar usuario: {errors}', [
-                'errors' => json_encode($errors)
-            ]);
-            return redirect()->back()->withInput()->with('errors-insert', $errors);
-        }
-
-        $userId = $userModel->getInsertID();
-        log_message('debug', 'Usuario insertado correctamente con ID: {id}', ['id' => $userId]);
-
-        // Preparar datos para matrícula
+    // === LÓGICA SEGÚN ROL ===
+    if ($postData['role_id'] == 2) { 
+        // ---------- ESTUDIANTE -> Matriculas ----------
         $matriculaData = [
-            'estudiante_id'          => $userId,
-            'jornada_id'          => $postData['jornada'],
-            'grupo_id'            => $postData['grupoFormNew'],
-            'fecha_matricula' => date('Y-m-d', strtotime($postData['fecha_matricula'])),
-        ];
+            'estudiante_id'  => $userId,
+            'jornada_id'     => $postData['jornada'],
+            'grupo_id'       => $postData['grupoFormNew']
+                ];
 
+        log_message('debug', 'Datos para insertar matrícula: {data}', [
+            'data' => json_encode($matriculaData)
+        ]);
         $matriculaModel = new MatriculaModel();
 
         if (!$matriculaModel->insert($matriculaData)) {
@@ -125,10 +126,39 @@ class UserManagementController extends BaseController
             return redirect()->back()->withInput()->with('errors-insert', $errors);
         }
 
-        log_message('debug', 'Matrícula insertada correctamente para el usuario ID: {id}', ['id' => $userId]);
+        log_message('debug', 'Matrícula insertada correctamente para estudiante ID: {id}', ['id' => $userId]);
 
-        return redirect()->to('/admin/usermanagement')->with('success', 'User added successfully');
+    } elseif ($postData['role_id'] == 3) { 
+        // ---------- PROFESOR -> GruposAsignacion ----------
+        if (!empty($postData['grados'])) {
+            $asignacionModel = new GruposAsignacionModel();
+
+            foreach ($postData['grados'] as $grupoId) {
+                $asignacionData = [
+                    'jornada_id'   => $postData['jornada_asignacion'],
+                    'profesor_id' => $userId,
+                    'grupo_id'    => $grupoId,
+                ];
+
+                log_message('debug', 'Datos para insertar asignación: {data}', [
+                    'data' => json_encode($asignacionData)
+                ]);
+                if (!$asignacionModel->insert($asignacionData)) {
+                    $errors = $asignacionModel->errors();
+                    log_message('error', 'Error al insertar asignación: {errors}', [
+                        'errors' => json_encode($errors)
+                    ]);
+                    return redirect()->back()->withInput()->with('errors-insert', $errors);
+                }
+            }
+
+            log_message('debug', 'Asignaciones insertadas correctamente para profesor ID: {id}', ['id' => $userId]);
+        }
     }
+
+    return redirect()->to('/admin/usermanagement')->with('success', 'Usuario agregado correctamente');
+}
+
     public function editUser($id)
     {
         $roleModel = new ComboBoxModel();

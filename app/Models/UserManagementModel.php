@@ -22,7 +22,8 @@ protected $allowedFields = [
 ];
     protected $returnType = 'array';
     protected $useTimestamps = false;
-
+ protected $createdField  = 'created_at';
+    protected $updatedField  = 'updated_at';
     // Método para obtener usuarios sin la contraseña
     public function getUsers($id = null)
     {

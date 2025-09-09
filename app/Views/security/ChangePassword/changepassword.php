@@ -16,7 +16,7 @@
     }
 
     .input-group-text {
-        background: #FEC659;
+        background: #2a6322;
         border: none;
         color: #333;
         font-size: 1.1rem;
@@ -34,12 +34,12 @@
 
     .form-control:focus {
         background: rgba(0, 0, 0, 0.08);
-        border: 1px solid #FEC659;
+        border: 1px solid #2a6322;
         box-shadow: none;
     }
 
     .btn-primary {
-        background: #FEC659;
+        background: #2a6322;
         border: none;
         color: #333;
         font-weight: bold;

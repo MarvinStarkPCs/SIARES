@@ -15,7 +15,7 @@
     }
 
     .profile-header {
-        background: linear-gradient(135deg, #FEC659, #FFA500);
+        background: linear-gradient(135deg, #4A148C, #8771afff);
         padding: 30px;
         text-align: center;
         color: white;
@@ -117,14 +117,14 @@
 
     /* Estilo para los inputs en modo edición */
     .input-edit .form-control {
-        border: 2px solid #FEC659;
+        border: 2px solid #4A148C;
         border-radius: 8px;
         transition: all 0.3s ease;
         background: rgba(254, 198, 89, 0.05);
     }
 
     .input-edit .form-control:focus {
-        border-color: #FFA500;
+        border-color: #8771afff;
         box-shadow: 0 0 0 0.2rem rgba(255, 165, 0, 0.25);
         background: rgba(254, 198, 89, 0.1);
     }
@@ -133,7 +133,7 @@
     .edit-btn,
     .save-btn,
     .cancel-btn {
-        background: #FEC659;
+        background: #4A148C;
         border: none;
         color: white;
         padding: 10px 20px;
@@ -147,7 +147,7 @@
     .edit-btn:hover,
     .save-btn:hover,
     .cancel-btn:hover {
-        background: #FFA500;
+        background: #8771afff;
         transform: scale(1.05);
     }
 
@@ -193,7 +193,7 @@
 
     /* Indicador visual de modo edición */
     .profile-card.edit-mode {
-        border: 2px solid #FEC659;
+        border: 2px solid #4A148C;
         box-shadow: 0 6px 12px rgba(254, 198, 89, 0.3);
     }
 
@@ -252,7 +252,7 @@
                         // Si existe nombre y archivo, usamos la imagen del usuario; si no, la SVG por defecto
                         $imagen = (! empty($profileImage))
                             ? base_url($folder . $profileImage)
-                            : base_url('upload/profile_images/undraw_profile.svg');
+                            : base_url('img/undraw_profile.svg');
                         ?>
                         <img id="foto-preview" src="<?= $imagen ?>" alt="Foto de Perfil">
                         <!-- Etiqueta fuera del contenedor editable -->
@@ -276,17 +276,17 @@
                     <div class="profile-details">
                         <ul>
                             <li>
-                                <strong>Identification:</strong>
+                                <strong>Identificación:</strong>
                                 <div class="field-container">
-                                    <span class="text-display"><?= esc($user['identification']) ?></span>
+                                    <span class="text-display"><?= esc($user['documento']) ?></span>
                                     <div class="input-edit hidden">
-                                        <input type="number" name="identification" class="form-control form-control-sm" value="<?= esc($user['identification']) ?>" required>
+                                        <input type="number" name="identification" class="form-control form-control-sm" value="<?= esc($user['documento']) ?>" required>
                                     </div>
                                 </div>
                             </li>
 
                             <li>
-                                <strong>Email:</strong>
+                                <strong>Correo:</strong>
                                 <div class="field-container">
                                     <span class="text-display"><?= esc($user['email']) ?></span>
                                     <div class="input-edit hidden">
@@ -296,26 +296,26 @@
                             </li>
 
                             <li>
-                                <strong>Phone:</strong>
+                                <strong>Telefono:</strong>
                                 <div class="field-container">
-                                    <span class="text-display"><?= esc($user['phone']) ?></span>
+                                    <span class="text-display"><?= esc($user['telefono']) ?></span>
                                     <div class="input-edit hidden">
-                                        <input type="text" name="phone" class="form-control form-control-sm" value="<?= esc($user['phone']) ?>" required>
+                                        <input type="text" name="phone" class="form-control form-control-sm" value="<?= esc($user['telefono']) ?>" required>
                                     </div>
                                 </div>
                             </li>
 
                             <li>
-                                <strong>Registration Date:</strong>
-                                <span><?= esc($user['date_registration']) ?></span>
+                                <strong>Fecha de Registro:</strong>
+                                <span><?= esc($user['created_at']) ?></span>
                             </li>
 
                             <li>
-                                <strong>Address:</strong>
+                                <strong>Direccion:</strong>
                                 <div class="field-container">
-                                    <span class="text-display"><?= esc($user['address']) ?></span>
+                                    <span class="text-display"><?= esc($user['direccion']) ?></span>
                                     <div class="input-edit hidden">
-                                        <input type="text" name="address" class="form-control form-control-sm" value="<?= esc($user['address']) ?>" required>
+                                        <input type="text" name="address" class="form-control form-control-sm" value="<?= esc($user['direccion']) ?>" required>
                                     </div>
                                 </div>
                             </li>
@@ -327,7 +327,7 @@
                         </ul>
 
                         <div class="text-center">
-                            <button type="button" class="edit-btn" id="editBtn">Edit profile</button>
+                            <!-- <button type="button" class="edit-btn" id="editBtn">Edit profile</button> -->
                             <button type="submit" class="save-btn hidden" id="saveBtn">Guardar</button>
                             <button type="button" class="cancel-btn hidden" id="cancelBtn">Cancelar</button>
                         </div>
