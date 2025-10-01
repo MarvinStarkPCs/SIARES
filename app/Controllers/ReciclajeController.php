@@ -152,7 +152,7 @@ public function guardarMateriales()
         // Reporte filtrado
         $materiales = $reporteModel->getReporteAgrupado($estudianteId, $periodoId);
         log_message('debug', 'Materiales obtenidos: ' . print_r($materiales, true));
-        return view('estudiante/reporte-reciclaje/index', [
+        return view('estudiante/reporte_reciclaje/index', [
             'materiales' => $materiales,
             'periodos'   => $periodos,
             'periodoId'  => $periodoId
@@ -172,7 +172,7 @@ public function guardarMateriales()
         // Obtener reporte general
         $materiales = $reporteModel->getReporteGeneral($periodoId);
 
-        return view('admin/reporte-reciclaje/index', [
+        return view('admin/reporte_reciclaje/index', [
             'materiales' => $materiales,
             'periodos'   => $periodos,
             'periodoId'  => $periodoId
