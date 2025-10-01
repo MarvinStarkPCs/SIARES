@@ -188,11 +188,25 @@ public function guardarMateriales()
             'grupos' => $combobox->getTableData('grupos') ?? [],
             'grados' => $combobox->getTableData('grados') ?? [],
             'jornadas' => $combobox->getTableData('jornadas') ?? [],
+            'periodos' => $combobox->getTableData('periodos') ?? [],
+
         ];
 
 
-        return view('admin/reporte_filtro',  $data);
+        return view('admin/reporte_filtro/reporte_filtro',  $data);
 
 
     }
+
+    public function filtrosBuscar()
+    {
+        $documento = $this->request->getPost('documento');
+        $grupo = $this->request->getPost('grupo');
+        $jornada = $this->request->getPost('jornada');
+
+        $reporteModel = new ReciclajeModel();
+        $resultados = $reporteModel->getReciclajes($grupo, $jornada, $documento);
+        return $this->response->setJSON($resultados);
+}
+
 }

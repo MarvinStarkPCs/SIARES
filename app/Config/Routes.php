@@ -34,7 +34,8 @@ $routes->group('admin', ['filter' => 'auth'], function ($routes) {
         $routes->post('matriculas/store', 'MatriculaController::store'); // guarda en la BD
 
     $routes->get('reciclaje/filtro', 'ReciclajeController::filtros'); // Registrar material reciclado
-
+    $routes->post('reciclaje/results/buscar', 'ReciclajeController::filtrosBuscar'); // Registrar material reciclado
+    
     $routes->post('reciclaje/save', 'ReciclajeController::save'); // Guardar reciclaje
     $routes->post('usermanagement/update/(:num)', 'UserManagementController::updateUser/$1');
     $routes->post('usermanagement/showComboBox', 'UserManagementController::showComboBox');
