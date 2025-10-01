@@ -26,7 +26,7 @@
                         <div class="card-body text-center">
                             <h5 class="card-title"><?= esc($row['material']) ?></h5>
                             <p class="card-text">
-                                <strong><?= number_format($row['total_reciclado'], 2) ?> kg</strong>
+                                <strong><?= number_format($row['total_reciclado'], 2) ?> G (Gramos)</strong>
                             </p>
                         </div>
                     </div>
