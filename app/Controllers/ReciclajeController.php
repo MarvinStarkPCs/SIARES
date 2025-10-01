@@ -192,7 +192,7 @@ public function guardarMateriales()
         ];
 
 
-        return view('admin/reporte-filtro/index',  $data);
+        return view('admin/reporte_filtro/index',  $data);
 
 
     }
