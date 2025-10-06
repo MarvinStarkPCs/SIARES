@@ -31,7 +31,7 @@ $routes->group('admin', ['filter' => 'auth'], function ($routes) {
     
     $routes->get('reciclaje', 'ReciclajeController::reporte_reciclaje_general'); // Registrar material reciclado
     $routes->get('reciclaje/buscar/(:segment)', 'ReciclajeController::buscar/$1'); // Guardar reciclaje
-        $routes->post('matriculas/store', 'MatriculaController::store'); // guarda en la BD
+    $routes->post('matriculas/store', 'MatriculaController::store'); // guarda en la BD
 
     $routes->get('reciclaje/filtro', 'ReciclajeController::filtros'); // Registrar material reciclado
     $routes->post('reciclaje/results/buscar', 'ReciclajeController::filtrosBuscar'); // Registrar material reciclado
@@ -64,6 +64,12 @@ $routes->group('estudiante', ['filter' => 'auth'], function ($routes) {
 // RUTAS PARA DOCENTE
 // ===============================
 $routes->group('docente', ['filter' => 'auth'], function ($routes) {
+    $routes->post('usermanagement/showComboBox', 'UserManagementController::showComboBox');
+
+    
+    $routes->get('reciclaje/filtro', 'ReciclajeController::filtros'); // Registrar material reciclado
+    $routes->post('reciclaje/results/buscar', 'ReciclajeController::filtrosBuscar'); // Registrar material reciclado
+
     $routes->get('dashboard', 'HomeController::index');
     $routes->get('reciclaje', 'ReciclajeController::index'); // Registrar material reciclado
     $routes->get('reciclaje/buscar/(:segment)', 'ReciclajeController::buscar/$1'); // Guardar reciclaje
@@ -75,5 +81,8 @@ $routes->group('docente', ['filter' => 'auth'], function ($routes) {
 
     $routes->get('profile', 'ProfileController::index');
 
+    
+    $routes->get('reciclaje/filtro', 'ReciclajeController::filtros'); // Registrar material reciclado
+    $routes->post('reciclaje/results/buscar', 'ReciclajeController::filtrosBuscar'); // Registrar material reciclado
 });
 

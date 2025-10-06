@@ -223,6 +223,13 @@ $(document).ready(function() {
       },
       dataType: "json",
       success: function (data) {
+        if (!data.length) {
+          Swal.fire({
+            icon: 'info',
+            title: 'No se encontraron resultados',
+            text: 'Intente con otros filtros.',
+          });
+        }
         let tabla = $('#dataTable2').DataTable();
         tabla.clear();
 
@@ -282,7 +289,7 @@ $(document).ready(function() {
     }
 
     $.ajax({
-      url: "<?= base_url('admin/usermanagement/showComboBox') ?>",
+      url: "../usermanagement/showComboBox",
       type: "POST",
       data: {
         tabla: 'grupos',

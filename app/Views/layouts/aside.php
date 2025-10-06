@@ -117,6 +117,14 @@
             </a>
         </li>
 
+        
+          <li class="nav-item">
+            <a class="nav-link" href="<?= base_url('docente/reciclaje/filtro'); ?>">
+                <i class="fas fa-search"></i>
+                <span>Material Reciclado filtros</span>
+            </a>
+        </li>
+
         <!-- Seguridad -->
         <li class="nav-item">
             <a class="nav-link" href="<?= base_url('docente/changepassword'); ?>">
