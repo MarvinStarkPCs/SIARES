@@ -229,7 +229,7 @@ public function editUser($id)
         $data['roles']    = $roleModel->getTableData('roles') ?? [];
 
         log_message('info', 'Datos del usuario: ' . json_encode($data['user']));
-        return view('security/UserManagement/update', $data);
+        return view('security/UserManagement/Update', $data);
 }
 
 public function detailUser($id)
