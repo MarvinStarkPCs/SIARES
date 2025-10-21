@@ -15,16 +15,24 @@
 
           <!-- NAV TABS -->
           <ul class="nav nav-tabs" role="tablist">
-            <li class="nav-item"><a class="nav-link <?= !old('role_id') || session('errors-insert') ? 'active' : '' ?>" data-toggle="tab" href="#client">Información Básica</a></li>
-            <li class="nav-item <?= (old('role_id')=="2")?'':'d-none' ?>" id="tabMatricula"><a class="nav-link" data-toggle="tab" href="#matricula">Matrícula</a></li>
-            <li class="nav-item <?= (old('role_id')=="3")?'':'d-none' ?>" id="tabAsignacion"><a class="nav-link" data-toggle="tab" href="#asignacion">Asignación</a></li>
-            <li class="nav-item"><a class="nav-link <?= old('role_id') && !session('errors-insert') ? 'active' : '' ?>" data-toggle="tab" href="#system">Sistema</a></li>
+            <li class="nav-item">
+              <a class="nav-link active" data-toggle="tab" href="#client" id="tabInfoBasica">Información Básica</a>
+            </li>
+            <li class="nav-item d-none" id="tabMatricula">
+              <a class="nav-link" data-toggle="tab" href="#matricula">Matrícula</a>
+            </li>
+            <li class="nav-item d-none" id="tabAsignacion">
+              <a class="nav-link" data-toggle="tab" href="#asignacion">Asignación</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#system" id="tabSistema">Sistema</a>
+            </li>
           </ul>
 
           <div class="tab-content pt-3">
 
             <!-- TAB: Información Básica -->
-            <div class="tab-pane fade show <?= !old('role_id') || session('errors-insert') ? 'active' : '' ?>" id="client">
+            <div class="tab-pane fade show active" id="client">
               <div class="row">
                 <div class="form-group col-md-4">
                   <label>Nombre</label>
@@ -32,6 +40,15 @@
                          name="name" value="<?= old('name') ?>" required>
                   <?php if(session('errors-insert.name')): ?>
                     <div class="invalid-feedback"><?= session('errors-insert.name') ?></div>
+                  <?php endif; ?>
+                </div>
+
+                <div class="form-group col-md-4">
+                  <label>Apellido</label>
+                  <input type="text" class="form-control <?= session('errors-insert.last_name') ? 'is-invalid' : '' ?>"
+                         name="last_name" value="<?= old('last_name') ?>" required>
+                  <?php if(session('errors-insert.last_name')): ?>
+                    <div class="invalid-feedback"><?= session('errors-insert.last_name') ?></div>
                   <?php endif; ?>
                 </div>
 
@@ -63,37 +80,6 @@
                 </div>
 
                 <div class="form-group col-md-4">
-                  <label>Dirección</label>
-                  <input type="text" class="form-control <?= session('errors-insert.direccion') ? 'is-invalid' : '' ?>"
-                         name="direccion" value="<?= old('direccion') ?>">
-                  <?php if(session('errors-insert.direccion')): ?>
-                    <div class="invalid-feedback"><?= session('errors-insert.direccion') ?></div>
-                  <?php endif; ?>
-                </div>
-
-                <div class="form-group col-md-4">
-                  <label>Género</label>
-                  <select class="form-control <?= session('errors-insert.genero') ? 'is-invalid' : '' ?>"
-                          name="genero" required>
-                    <option value="">Selecciona...</option>
-                    <option value="MASCULINO" <?= old('genero')=='MASCULINO'?'selected':'' ?>>Masculino</option>
-                    <option value="FEMENINO" <?= old('genero')=='FEMENINO'?'selected':'' ?>>Femenino</option>
-                  </select>
-                  <?php if(session('errors-insert.genero')): ?>
-                    <div class="invalid-feedback"><?= session('errors-insert.genero') ?></div>
-                  <?php endif; ?>
-                </div>
-
-                <div class="form-group col-md-4">
-                  <label>Fecha de nacimiento</label>
-                  <input type="date" class="form-control <?= session('errors-insert.fecha_nacimiento') ? 'is-invalid' : '' ?>"
-                         name="fecha_nacimiento" value="<?= old('fecha_nacimiento') ?>" required>
-                  <?php if(session('errors-insert.fecha_nacimiento')): ?>
-                    <div class="invalid-feedback"><?= session('errors-insert.fecha_nacimiento') ?></div>
-                  <?php endif; ?>
-                </div>
-
-                <div class="form-group col-md-4">
                   <label>Tipo de usuario</label>
                   <select class="form-control <?= session('errors-insert.role_id') ? 'is-invalid' : '' ?>"
                           id="inputTipoUsuario" name="role_id" required>
@@ -115,46 +101,48 @@
             </div>
 
             <!-- TAB: Matrícula -->
-            <div class="tab-pane fade <?= old('role_id')=="2"?'show active':'' ?>" id="matricula">
+            <div class="tab-pane fade" id="matricula">
               <div class="row">
                 <div class="form-group col-md-4">
                   <label>Jornada</label>
-                  <select class="form-control <?= session('errors-insert.jornada') ? 'is-invalid' : '' ?>"
-                          name="jornada">
+                  <select class="form-control <?= session('errors-insert.jornada_id') ? 'is-invalid' : '' ?>"
+                          name="jornada_id" id="jornadaMatricula">
                     <option value="">Seleccione Jornada</option>
                     <?php foreach ($jornadas as $j): ?>
-                      <option value="<?= $j['id'] ?>" <?= old('jornada')==$j['id']?'selected':'' ?>>
+                      <option value="<?= $j['id'] ?>" <?= old('jornada_id')==$j['id']?'selected':'' ?>>
                         <?= esc($j['nombre']) ?>
                       </option>
                     <?php endforeach; ?>
                   </select>
-                  <?php if(session('errors-insert.jornada')): ?>
-                    <div class="invalid-feedback"><?= session('errors-insert.jornada') ?></div>
+                  <?php if(session('errors-insert.jornada_id')): ?>
+                    <div class="invalid-feedback"><?= session('errors-insert.jornada_id') ?></div>
                   <?php endif; ?>
                 </div>
 
                 <div class="form-group col-md-4">
                   <label>Grado</label>
-                  <select class="form-control <?= session('errors-insert.grado') ? 'is-invalid' : '' ?>"
-                          id="gradoFormNew" name="grado">
+                  <select class="form-control <?= session('errors-insert.grado_id') ? 'is-invalid' : '' ?>"
+                          id="gradoFormNew" name="grado_id">
                     <option value="">Selecciona...</option>
                     <?php foreach ($grados as $g): ?>
-                      <option value="<?= $g['id'] ?>" <?= old('grado')==$g['id']?'selected':'' ?>>
+                      <option value="<?= $g['id'] ?>" <?= old('grado_id')==$g['id']?'selected':'' ?>>
                         <?= esc($g['nombre']) ?>
                       </option>
                     <?php endforeach; ?>
                   </select>
-                  <?php if(session('errors-insert.grado')): ?>
-                    <div class="invalid-feedback"><?= session('errors-insert.grado') ?></div>
+                  <?php if(session('errors-insert.grado_id')): ?>
+                    <div class="invalid-feedback"><?= session('errors-insert.grado_id') ?></div>
                   <?php endif; ?>
                 </div>
 
                 <div class="form-group col-md-4">
                   <label>Grupo</label>
-                  <select class="form-control <?= session('errors-insert.grupo') ? 'is-invalid' : '' ?>"
-                          id="grupoFormNew" name="grupoFormNew"></select>
-                  <?php if(session('errors-insert.grupo')): ?>
-                    <div class="invalid-feedback"><?= session('errors-insert.grupo') ?></div>
+                  <select class="form-control <?= session('errors-insert.grupo_id') ? 'is-invalid' : '' ?>"
+                          id="grupoFormNew" name="grupo_id">
+                    <option value="">Selecciona un grado primero</option>
+                  </select>
+                  <?php if(session('errors-insert.grupo_id')): ?>
+                    <div class="invalid-feedback"><?= session('errors-insert.grupo_id') ?></div>
                   <?php endif; ?>
                 </div>
               </div>
@@ -165,56 +153,54 @@
             </div>
 
             <!-- TAB: Asignación -->
-          <div class="tab-pane fade <?= old('role_id')=="3"?'show active':'' ?>" id="asignacion">
-  <div class="row">
-    
-    <!-- Jornada -->
-    <div class="form-group col-md-6">
-      <label>Jornada</label>
-      <select class="form-control <?= session('errors-insert.jornada') ? 'is-invalid' : '' ?>"
-              name="jornada_asignacion">
-        <option value="">Seleccione Jornada</option>
-        <?php foreach ($jornadas as $j): ?>
-          <option value="<?= $j['id'] ?>" <?= old('jornada')==$j['id']?'selected':'' ?>>
-            <?= esc($j['nombre']) ?>
-          </option>
-        <?php endforeach; ?>
-      </select>
-      <?php if(session('errors-insert.jornada')): ?>
-        <div class="invalid-feedback"><?= session('errors-insert.jornada') ?></div>
-      <?php endif; ?>
-    </div>
+            <div class="tab-pane fade" id="asignacion">
+              <div class="row">
+                
+                <!-- Jornada -->
+                <div class="form-group col-md-6">
+                  <label>Jornada</label>
+                  <select class="form-control <?= session('errors-insert.jornada_asignacion') ? 'is-invalid' : '' ?>"
+                          name="jornada_asignacion" id="jornadaAsignacion">
+                    <option value="">Seleccione Jornada</option>
+                    <?php foreach ($jornadas as $j): ?>
+                      <option value="<?= $j['id'] ?>" <?= old('jornada_asignacion')==$j['id']?'selected':'' ?>>
+                        <?= esc($j['nombre']) ?>
+                      </option>
+                    <?php endforeach; ?>
+                  </select>
+                  <?php if(session('errors-insert.jornada_asignacion')): ?>
+                    <div class="invalid-feedback"><?= session('errors-insert.jornada_asignacion') ?></div>
+                  <?php endif; ?>
+                </div>
 
-    <!-- Grados / Grupos -->
-    <div class="form-group col-md-6">
-      <label>Grados / Grupos</label>
-      <select class="form-control <?= session('errors-insert.grados') ? 'is-invalid' : '' ?>"
-              id="gradosGrupos" name="grados[]" multiple>
-        <?php foreach ($grados_grupos as $item): ?>
-          <option value="<?= $item['id_grupo'] ?>" 
-                  <?= in_array($item['id_grupo'], old('grados')??[]) ? 'selected' : '' ?>>
-            <?= esc($item['grados_grupos']) ?>
-          </option>
-        <?php endforeach; ?>
-      </select>
-      <?php if(session('errors-insert.grados')): ?>
-        <div class="invalid-feedback d-block"><?= session('errors-insert.grados') ?></div>
-      <?php endif; ?>
-      
-    </div>
+                <!-- Grados / Grupos -->
+                <div class="form-group col-md-6">
+                  <label>Grados / Grupos</label>
+                  <select class="form-control <?= session('errors-insert.grados') ? 'is-invalid' : '' ?>"
+                          id="gradosGrupos" name="grados[]" multiple>
+                    <?php foreach ($grados_grupos as $item): ?>
+                      <option value="<?= $item['id_grupo'] ?>" 
+                              <?= in_array($item['id_grupo'], old('grados')??[]) ? 'selected' : '' ?>>
+                        <?= esc($item['grados_grupos']) ?>
+                      </option>
+                    <?php endforeach; ?>
+                  </select>
+                  <?php if(session('errors-insert.grados')): ?>
+                    <div class="invalid-feedback d-block"><?= session('errors-insert.grados') ?></div>
+                  <?php endif; ?>
+                </div>
 
-  </div>
+              </div>
 
-  <!-- Botones -->
-  <div class="d-flex justify-content-between mt-3">
-    <button type="button" class="btn btn-secondary prev-tab">Anterior</button>
-    <button type="button" class="btn btn-primary next-tab">Siguiente</button>
-  </div>
-</div>
-
+              <!-- Botones -->
+              <div class="d-flex justify-content-between mt-3">
+                <button type="button" class="btn btn-secondary prev-tab">Anterior</button>
+                <button type="button" class="btn btn-primary next-tab">Siguiente</button>
+              </div>
+            </div>
 
             <!-- TAB: Sistema -->
-            <div class="tab-pane fade <?= old('role_id') && !session('errors-insert') ? 'show active':'' ?>" id="system">
+            <div class="tab-pane fade" id="system">
               <div class="form-group col-md-4">
                 <label>Estado del Sistema</label>
                 <select class="form-control <?= session('errors-insert.status') ? 'is-invalid' : '' ?>"
@@ -243,22 +229,14 @@
 <script>
 $(document).ready(function() {
   $('#addUserModal').modal('show');
-
-  // Activar pestaña correcta según el rol
-  let role = "<?= old('role_id') ?>";
-  if (role == "2") {
-    $('.nav-tabs a[href="#client"]').tab('show');
-  } else if (role == "3") {
-    $('.nav-tabs a[href="#client"]').tab('show');
-  } else {
-    $('.nav-tabs a[href="#client"]').tab('show');
-  }
 });
 </script>
 <?php endif; ?>
 
 <script>
 $(function() {
+  let isInitializing = false;
+  
   // Inicializar Select2
   $('#gradosGrupos').select2({
     width: '100%',
@@ -268,31 +246,23 @@ $(function() {
   // Mostrar tabs según rol seleccionado
   function actualizarTabsPorRol(roleId) {
     $('#tabMatricula, #tabAsignacion').addClass('d-none');
-    if (roleId == 2) $('#tabMatricula').removeClass('d-none');
-    else if (roleId == 3) $('#tabAsignacion').removeClass('d-none');
+    if (roleId == 2) {
+      $('#tabMatricula').removeClass('d-none');
+    } else if (roleId == 3) {
+      $('#tabAsignacion').removeClass('d-none');
+    }
   }
 
-  $('#inputTipoUsuario').on('change', function() {
-    actualizarTabsPorRol($(this).val());
-  });
-
-  // Navegación entre tabs
-  $('.next-tab').on('click', function() {
-    let $active = $('.nav-tabs .nav-link.active').parent();
-    $active.nextAll(':visible').first().find('.nav-link').tab('show');
-  });
-  $('.prev-tab').on('click', function() {
-    let $active = $('.nav-tabs .nav-link.active').parent();
-    $active.prevAll(':visible').first().find('.nav-link').tab('show');
-  });
-
   // Cargar grupos por grado
-  $('#gradoFormNew').on('change', function() {
-    let gradoId = $(this).val();
+  function cargarGruposPorGrado(gradoId, grupoSeleccionado = null) {
     let grupoSelect = $('#grupoFormNew');
-    grupoSelect.html('<option>Cargando...</option>');
+    
+    if (!gradoId) {
+      grupoSelect.html('<option value="">Selecciona un grado primero</option>');
+      return;
+    }
 
-    if (!gradoId) return grupoSelect.html('<option value="">Selecciona un grado</option>');
+    grupoSelect.html('<option>Cargando...</option>').prop('disabled', true);
 
     $.post("<?= base_url('admin/usermanagement/showComboBox') ?>", {
       tabla: 'grupos',
@@ -300,23 +270,98 @@ $(function() {
       id: gradoId,
       <?= csrf_token() ?>: "<?= csrf_hash() ?>"
     }, function(data) {
-      grupoSelect.empty().append('<option value="">Selecciona...</option>');
-      if (data.length) {
-        data.forEach(g => grupoSelect.append(new Option(g.nombre, g.id)));
+      grupoSelect.empty().append('<option value="">Selecciona...</option>').prop('disabled', false);
+      
+      if (data && data.length) {
+        data.forEach(function(g) {
+          let option = new Option(g.nombre, g.id);
+          if (grupoSeleccionado && g.id == grupoSeleccionado) {
+            option.selected = true;
+          }
+          grupoSelect.append(option);
+        });
       } else {
-        grupoSelect.append('<option>No hay grupos</option>');
+        grupoSelect.append('<option value="">No hay grupos disponibles</option>');
       }
-    }, 'json');
+    }, 'json').fail(function() {
+      grupoSelect.html('<option value="">Error al cargar grupos</option>').prop('disabled', false);
+    });
+  }
+
+  // Evento change del select de grado
+  $('#gradoFormNew').on('change', function() {
+    if (!isInitializing) {
+      cargarGruposPorGrado($(this).val());
+    }
+  });
+
+  // Evento change del tipo de usuario
+  $('#inputTipoUsuario').on('change', function() {
+    let roleId = $(this).val();
+    actualizarTabsPorRol(roleId);
+    
+    // Limpiar campos según el rol
+    if (roleId == 2) {
+      // Si cambió a Estudiante, limpiar campos de Asignación
+      $('#jornadaAsignacion').val('');
+      $('#gradosGrupos').val(null).trigger('change');
+    } else if (roleId == 3) {
+      // Si cambió a Profesor, limpiar campos de Matrícula
+      $('#jornadaMatricula').val('');
+      $('#gradoFormNew').val('');
+      $('#grupoFormNew').html('<option value="">Selecciona un grado primero</option>');
+    } else {
+      // Si no es ni Estudiante ni Profesor, limpiar todo
+      $('#jornadaMatricula, #jornadaAsignacion, #gradoFormNew').val('');
+      $('#grupoFormNew').html('<option value="">Selecciona un grado primero</option>');
+      $('#gradosGrupos').val(null).trigger('change');
+    }
+  });
+
+  // Navegación entre tabs
+  $('.next-tab').on('click', function() {
+    let $active = $('.nav-tabs .nav-link.active').parent();
+    let $next = $active.nextAll(':visible').first();
+    if ($next.length) {
+      $next.find('.nav-link').tab('show');
+    }
+  });
+
+  $('.prev-tab').on('click', function() {
+    let $active = $('.nav-tabs .nav-link.active').parent();
+    let $prev = $active.prevAll(':visible').first();
+    if ($prev.length) {
+      $prev.find('.nav-link').tab('show');
+    }
   });
 
   // Reset modal al cerrar
   $('#addUserModal').on('hidden.bs.modal', function() {
-    this.querySelector('form').reset();
-    $('#grupoFormNew').html('');
-    $('#gradosGrupos').val(null).trigger('change');
+    if (!<?= session('errors-insert') ? 'true' : 'false' ?>) {
+      this.querySelector('form').reset();
+      $('#grupoFormNew').html('<option value="">Selecciona un grado primero</option>');
+      $('#gradosGrupos').val(null).trigger('change');
+      actualizarTabsPorRol('');
+    }
   });
 
-  // Inicializar visibilidad de tabs al cargar
-  actualizarTabsPorRol($('#inputTipoUsuario').val());
+  // Inicialización al cargar la página
+  $(document).ready(function() {
+    isInitializing = true;
+    
+    // Actualizar visibilidad de tabs
+    let roleId = $('#inputTipoUsuario').val();
+    actualizarTabsPorRol(roleId);
+    
+    // Si hay un grado seleccionado (por old()), cargar sus grupos
+    let gradoSeleccionado = "<?= old('grado_id') ?>";
+    let grupoSeleccionado = "<?= old('grupo_id') ?>";
+    
+    if (gradoSeleccionado && roleId == 2) {
+      cargarGruposPorGrado(gradoSeleccionado, grupoSeleccionado);
+    }
+    
+    isInitializing = false;
+  });
 });
 </script>

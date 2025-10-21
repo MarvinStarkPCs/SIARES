@@ -16,7 +16,7 @@
           <select id="gradosGrupos" name="grupo_id" class="form-control" required>
             <option value="">Seleccione Grado/Grupo</option>
             <?php foreach ($grados_grupos as $item): ?>
-              <option value="<?= $item['grupo_id'] ?>"><?= esc($item['grado_grupo']) ?></option>
+              <option value="<?= $item['id_grupo'] ?>"><?= esc($item['grados_grupos']) ?></option>
             <?php endforeach; ?>
           </select>
         </div>

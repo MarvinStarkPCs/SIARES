@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SIARES - Instituto Técnico Industrial "Lucio Pabón Nuñez"</title>
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
   <style>
     :root {
       --verde: #2A6322;
@@ -28,6 +29,13 @@
       justify-content: center;
       padding: 30px 15px;
       position: relative;
+      overflow: hidden;
+      animation: fadeInBody 2s ease forwards;
+    }
+
+    @keyframes fadeInBody {
+      from { opacity: 0; transform: scale(1.02); }
+      to { opacity: 1; transform: scale(1); }
     }
 
     .contenido {
@@ -41,12 +49,20 @@
       color: var(--blanco);
       text-align: center;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      animation: slideUp 1.2s ease forwards;
+      opacity: 0;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
     }
 
     h1 {
       font-size: 3rem;
       margin-bottom: 10px;
       color: var(--verde-claro);
+      animation: fadeInText 1.5s ease forwards;
     }
 
     h2 {
@@ -54,6 +70,7 @@
       margin-bottom: 20px;
       font-weight: 400;
       color: #e1ffe0;
+      animation: fadeInText 2s ease forwards;
     }
 
     p {
@@ -61,6 +78,12 @@
       line-height: 1.8;
       margin-bottom: 30px;
       color: #f1fff0;
+      animation: fadeInText 2.5s ease forwards;
+    }
+
+    @keyframes fadeInText {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .btn-login {
@@ -74,11 +97,40 @@
       font-size: 1.1rem;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
       transition: background 0.3s ease, transform 0.2s ease;
+      animation: fadeInButton 3s ease forwards;
+    }
+
+    @keyframes fadeInButton {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
     }
 
     .btn-login:hover {
       background-color: #c1f2b0;
       transform: scale(1.05);
+    }
+
+    .redes {
+      margin-top: 25px;
+      animation: fadeInSocial 3.5s ease forwards;
+    }
+
+    @keyframes fadeInSocial {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .redes a {
+      color: var(--verde-claro);
+      margin: 0 10px;
+      font-size: 1.8rem;
+      transition: transform 0.3s ease, color 0.3s ease;
+      text-decoration: none;
+    }
+
+    .redes a:hover {
+      transform: scale(1.2);
+      color: #fff;
     }
 
     footer {
@@ -88,6 +140,13 @@
       text-align: center;
       color: #e0ffe0;
       font-size: 0.9rem;
+      animation: fadeInFooter 4s ease forwards;
+      opacity: 0;
+    }
+
+    @keyframes fadeInFooter {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
     @media (max-width: 600px) {
@@ -120,12 +179,17 @@
     <h1>SIARES</h1>
     <h2>Instituto Técnico Industrial "Lucio Pabón Nuñez" – Ocaña</h2>
     <p>
-      El <strong>Sistema Informativo Ambiental del Reciclaje Escolar Sostenible</strong> es una plataforma que resalta el compromiso ambiental de nuestra institución. Promueve el reciclaje, la conciencia ecológica y la participación activa de los estudiantes.
+      El <strong>SIARES (Sistema de Información para la Administración de los Residuos Sólidos de la Institución)</strong> es una plataforma que resalta el compromiso ambiental de nuestra institución. Promueve el reciclaje, la conciencia ecológica y la participación activa de los estudiantes.
       <br><br>
       🌿 Cada acción suma. Cada estudiante cuenta. Cada botella reciclada construye futuro.
     </p>
 
     <a href="login" class="btn-login">Ingresar al sistema</a>
+
+    <div class="redes">
+      <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+    </div>
   </div>
 
   <footer>

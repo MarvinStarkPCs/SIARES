@@ -28,6 +28,14 @@
                 <span>Matricula / Rematricula</span>
             </a>
         </li>
+    <!-- asignacion de grado -->
+       <li class="nav-item">
+    <a class="nav-link" href="<?= base_url('admin/asignaciones'); ?>">
+        <i class="fas fa-chalkboard-teacher"></i>
+        <span>Asignación de grado (profesores)</span>
+    </a>
+</li>
+
 
         <!-- Reciclaje -->
         <li class="nav-item">

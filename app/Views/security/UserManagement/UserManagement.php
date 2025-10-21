@@ -8,9 +8,7 @@
     </div>
     <div class="card-body">
         <div class="d-flex justify-content-end mb-3 gap-2">
-    <a href="<?= base_url('admin/usermanagement/excel') ?>" class="btn btn-success btn-sm mr-2" title="Exportar a Excel">
-                <i class="fas fa-file-excel"></i> Excel
-            </a>
+
         <button type="button" id="openModalButtonUser" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addUserModal">
         <i class="fas fa-user-plus"></i> Agregar Usuario
     </button>
@@ -26,12 +24,10 @@
                 <thead>
                 <tr>
                     <th>Nombre</th>
+                    <th>Apellido</th>
                     <th>Documento</th>
-                    <th>Email</th>
+                    <th>Correo</th>
                     <th>Teléfono</th>
-                    <th>Dirección</th>
-                    <th>Género</th>
-                    <th>Fecha Nacimiento</th>
                     <th>Estado</th>
                     <th>Rol</th>
                     <th>Acciones</th>
@@ -41,12 +37,11 @@
                 <?php foreach ($users as $user): ?>
                     <tr>
                         <td><?= esc($user['name']) ?></td>
+                        <td><?=esc($user['last_name'])?></td>
                         <td><?= esc($user['documento']) ?></td>
-                        <td><?= esc($user['email']) ?></td>
+                        <td><?= esc(data: $user['email']) ?></td>
                         <td><?= esc($user['telefono']) ?></td>
-                        <td><?= esc($user['direccion']) ?></td>
-                        <td><?= esc($user['genero']) ?></td>
-                        <td><?= esc($user['fecha_nacimiento']) ?></td>
+
                         <td class="text-center">
                             <?php if ($user['estado'] == 'activo'): ?>
                                 <span class="badge badge-success">Activo</span>

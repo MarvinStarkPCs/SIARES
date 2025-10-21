@@ -9,17 +9,17 @@ class GradosGruposSeeder extends Seeder
     public function run()
     {
        $grados = [
-    'Primero',
-    'Segundo',
-    'Tercero',
-    'Cuarto',
-    'Quinto',
-    'Sexto',
-    'Séptimo',
-    'Octavo',
-    'Noveno',
-    'Décimo',
-    'Undécimo',
+    '1°',
+    '2°',
+    '3°',
+    '4°',
+    '5°',
+    '6°',
+    '7°',
+    '8°',
+    '9°',
+    '10°',
+    '11°',
 ];
 
         foreach ($grados as $grado) {

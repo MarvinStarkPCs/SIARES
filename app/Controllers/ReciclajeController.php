@@ -29,44 +29,44 @@ class ReciclajeController extends  BaseController
     }
 
     public function getEstudiantes()
-{
-    $grupoId = $this->request->getGet('grupo_id');
+    {
+        $grupoId = $this->request->getGet('grupo_id');
 
-    $matriculaModel = new \App\Models\MatriculaModel();
-    $estudiantes = $matriculaModel->getEstudiantesPorGrupo($grupoId);
+        $matriculaModel = new \App\Models\MatriculaModel();
+        $estudiantes = $matriculaModel->getEstudiantesPorGrupo($grupoId);
 
-    return $this->response->setJSON($estudiantes);
-}
-
-
-public function guardarMateriales()
-{
-    $data = $this->request->getPost('materiales');
-    if (!$data) {
-        return $this->response->setJSON(['success' => false, 'msg' => 'No se recibieron datos']);
+        return $this->response->setJSON($estudiantes);
     }
 
-    $db = \Config\Database::connect();
-    $builder = $db->table('reciclajes'); // tu tabla de la DB
 
-    $insertData = [];
-    $now = date('Y-m-d H:i:s');
+    public function guardarMateriales()
+    {
+        $data = $this->request->getPost('materiales');
+        if (!$data) {
+            return $this->response->setJSON(['success' => false, 'msg' => 'No se recibieron datos']);
+        }
 
-    foreach ($data as $d) {
-        $insertData[] = [
-            'periodo_id'   => $d['periodo_id'],
-            'material_id'  => $d['material_id'],
-            'matricula_id' => $d['matricula_id'],
-            'peso_total'   => $d['peso_total'],
-            'created_at'   => $now,
-            'updated_at'   => $now
-        ];
+        $db = \Config\Database::connect();
+        $builder = $db->table('reciclajes'); // tu tabla de la DB
+
+        $insertData = [];
+        $now = date('Y-m-d H:i:s');
+
+        foreach ($data as $d) {
+            $insertData[] = [
+                'periodo_id'   => $d['periodo_id'],
+                'material_id'  => $d['material_id'],
+                'matricula_id' => $d['matricula_id'],
+                'peso_total'   => $d['peso_total'],
+                'created_at'   => $now,
+                'updated_at'   => $now
+            ];
+        }
+
+        $builder->insertBatch($insertData);
+
+        return $this->response->setJSON(['success' => true]);
     }
-
-    $builder->insertBatch($insertData);
-
-    return $this->response->setJSON(['success' => true]);
-}
 
 
     // public function reporte_reciclaje_admin()
@@ -152,7 +152,7 @@ public function guardarMateriales()
         // Reporte filtrado
         $materiales = $reporteModel->getReporteAgrupado($estudianteId, $periodoId);
         log_message('debug', 'Materiales obtenidos: ' . print_r($materiales, true));
-        return view('estudiante/reporte_reciclaje/index', [
+        return view('estudiante/reporte-reciclaje/index', [
             'materiales' => $materiales,
             'periodos'   => $periodos,
             'periodoId'  => $periodoId
@@ -180,10 +180,11 @@ public function guardarMateriales()
     }
 
 
-      public function filtros(){
+    public function filtros()
+    {
         $combobox = new ComboBoxModel();
 
- $data = [
+        $data = [
             'grupos' => $combobox->getTableData('grupos') ?? [],
             'grados' => $combobox->getTableData('grados') ?? [],
             'jornadas' => $combobox->getTableData('jornadas') ?? [],
@@ -193,8 +194,6 @@ public function guardarMateriales()
 
 
         return view('admin/reporte_filtro/index',  $data);
-
-
     }
 
     public function filtrosBuscar()
@@ -206,6 +205,19 @@ public function guardarMateriales()
         $reporteModel = new ReciclajeModel();
         $resultados = $reporteModel->getReciclajes($grupo, $jornada, $documento);
         return $this->response->setJSON($resultados);
-}
+    }
 
+    public function asignacion_academica()
+    {
+
+                $roleModel = new ComboBoxModel();
+
+        $gruposGrados = new GruposAsignacionModel();
+        $data = [
+                        'jornadas' => $roleModel->getTableData('jornadas') ?? [],
+
+            'grados_grupos' => $gruposGrados->getGrupos() ?? [],
+        ];
+        return view('admin/asignar_grado/index', $data);
+    }
 }

@@ -8,6 +8,7 @@ class UserManagementModel extends Model
     protected $primaryKey = 'id';
 protected $allowedFields = [
     'name',
+    'last_name',
     'documento',
     'email',
     'telefono',
@@ -28,7 +29,7 @@ protected $allowedFields = [
     public function getUsers($id = null)
     {
         log_message('info', 'UserManagementModel: getUsers called with id: ' . $id);
-        $query = $this->select('users.id, users.name, users.documento, users.email, 
+        $query = $this->select('users.id, users.name, users.last_name, users.documento, users.email, 
                                 users.telefono, users.direccion, users.genero, users.fecha_nacimiento, 
                                 users.estado, users.role_id, users.created_at, users.updated_at, roles.name as role_name')
             ->join('roles', 'roles.id = users.role_id');
@@ -61,6 +62,7 @@ protected $allowedFields = [
                 m.fecha_matricula,
                 u.id AS estudiante_id,
                 u.name AS estudiante,
+                u.last_name AS last_name,
                 u.documento,
                 u.email,
                 u.telefono,
@@ -90,6 +92,7 @@ protected $allowedFields = [
             m.fecha_matricula,
             u.id AS estudiante_id,
             u.name AS estudiante,
+            u.last_name AS last_name,
             u.documento,
             u.email,
             u.telefono,

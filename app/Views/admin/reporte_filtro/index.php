@@ -10,7 +10,7 @@
   <div class="card-body" id="filtroCollapse" style="display: block;">
     <form class="row g-3 justify-content-center">
       <!-- Documento -->
-<div class="col-md-3">
+      <div class="col-md-3">
         <label for="documento" class="form-label">
           <i class="fas fa-id-card me-1 text-primary"></i> Número de documento
         </label>
@@ -54,21 +54,22 @@
     <div class="row justify-content-center mt-3">
       <div class="col-md-2 text-center">
         <button type="button" class="btn btn-primary w-100" id="btnBuscar">
-          <i class="fas fa-search me-1"></i> Search
+          <i class="fas fa-search me-1"></i> Buscar
         </button>
       </div>
       <div class="col-md-2 text-center">
         <button type="button" class="btn btn-secondary w-100" id="btnLimpiar">
-          <i class="fas fa-broom me-1"></i> Clean
+          <i class="fas fa-broom me-1"></i> Limpiar
         </button>
       </div>
     </div>
   </div>
 
-
-    <div class="col-md-3">
-        <label for="jornada" class="form-label">
-          <i class="fas fa-clock me-1 text-danger"></i> Periodo
+  <div class="card-body">
+    <div class="row mb-3">
+      <div class="col-md-3">
+        <label for="periodo" class="form-label">
+          <i class="fas fa-calendar me-1 text-danger"></i> Periodo
         </label>
         <select id="periodo" class="form-control select2">
           <option value="">-- Seleccione --</option>
@@ -77,8 +78,14 @@
           <?php endforeach; ?>
         </select>
       </div>
-  <!-- 📊 Tabla -->
-  <div class="card-body">
+      <div class="col-md-3 d-flex align-items-end">
+        <button type="button" class="btn btn-success w-100" id="btnExportarExcel">
+          <i class="fas fa-file-excel me-1"></i> Exportar a Excel
+        </button>
+      </div>
+    </div>
+
+    <!-- 📊 Tabla -->
     <div class="table-responsive mt-4">
       <table id="dataTable2" class="table table-bordered" width="100%" cellspacing="0">
         <thead class="bg-primary text-white">
@@ -89,12 +96,11 @@
             <th>Periodo</th>
             <th>Jornada</th>
             <th>Material</th>
-            <th>peso(G)</th>
-            
+            <th>Peso(G)</th>
           </tr>
         </thead>
         <tbody id="tablaResultados">
-          <!-- tbody vacío para que lo maneje dataTable2s -->
+          <!-- tbody vacío para que lo maneje DataTables -->
         </tbody>
       </table>
     </div>
@@ -129,33 +135,86 @@
 </style>
 
 <!-- 🔌 Script -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <script>
 $(document).ready(function() {
 
- $('#periodo').on('change', function () {
-        let table = $('#dataTable2').DataTable();
-
+  $('#periodo').on('change', function () {
+    let table = $('#dataTable2').DataTable();
     var valor = $(this).val();
-    // Buscar directamente en el DataTable
     table.search(valor).draw();
-
-    // También lo "pego" visualmente en el input del DataTable
     $('.dataTables_filter input').val(valor);
   });
 
- 
+  // 📥 Exportar a Excel
+  $('#btnExportarExcel').on('click', function() {
+    let table = $('#dataTable2').DataTable();
+    let datos = table.rows({search: 'applied'}).data().toArray();
+
+    if (datos.length === 0) {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Sin datos',
+        text: 'No hay resultados para exportar. Realice una búsqueda primero.',
+      });
+      return;
+    }
+
+    // Preparar datos para Excel
+    let excelData = [];
+    
+    // Agregar encabezados
+    excelData.push(['Documento', 'Estudiante', 'Curso', 'Periodo', 'Jornada', 'Material', 'Peso(G)']);
+    
+    // Agregar filas de datos
+    datos.forEach(row => {
+      excelData.push(row);
+    });
+
+    // Crear libro de trabajo
+    let wb = XLSX.utils.book_new();
+    let ws = XLSX.utils.aoa_to_sheet(excelData);
+
+    // Ajustar ancho de columnas
+    ws['!cols'] = [
+      {wch: 15}, // Documento
+      {wch: 30}, // Estudiante
+      {wch: 10}, // Curso
+      {wch: 15}, // Periodo
+      {wch: 15}, // Jornada
+      {wch: 20}, // Material
+      {wch: 10}  // Peso
+    ];
+
+    // Agregar hoja al libro
+    XLSX.utils.book_append_sheet(wb, ws, 'Resultados');
+
+    // Generar nombre de archivo con fecha
+    let fecha = new Date().toISOString().slice(0, 10);
+    let nombreArchivo = `resultados_${fecha}.xlsx`;
+
+    // Descargar archivo
+    XLSX.writeFile(wb, nombreArchivo);
+
+    Swal.fire({
+      icon: 'success',
+      title: 'Exportación exitosa',
+      text: `Se descargó el archivo ${nombreArchivo}`,
+      timer: 2000,
+      showConfirmButton: false
+    });
+  });
+
   // 🔄 Restaurar datos al cargar la página
   const data = JSON.parse(localStorage.getItem('resultadosData'));
   const filtros = JSON.parse(localStorage.getItem('resultadosFiltros'));
 
   if (data && filtros) {
-    // Restaurar filtros en inputs
     $('#documento').val(filtros.documento || '');
     $('#grado').val(filtros.grado || '').trigger('change');
     $('#grupo').val(filtros.grupo || '').trigger('change');
     $('#jornada').val(filtros.jornada || '').trigger('change');
 
-    // Restaurar la tabla
     let tabla = $('#dataTable2').DataTable();
     tabla.clear();
 
@@ -181,7 +240,6 @@ $(document).ready(function() {
     const grupo = $('#grupo').val();
     const jornada = $('#jornada').val();
 
-    // 🔎 Validaciones
     if (documento && (grado || grupo || jornada)) {
       Swal.fire({
         icon: 'warning',
@@ -200,17 +258,14 @@ $(document).ready(function() {
       return;
     }
 
-    // 👉 Si es por documento, limpiar selects
     if (documento) {
       $('#grado, #grupo, #jornada').val('').trigger('change');
     }
 
-    // 👉 Si es por selects, limpiar documento
     if (!documento && (grado && grupo && jornada)) {
       $('#documento').val('');
     }
 
-    // 🔥 Petición AJAX
     $.ajax({
       url: "./results/buscar",
       type: "POST",
@@ -233,7 +288,7 @@ $(document).ready(function() {
         let tabla = $('#dataTable2').DataTable();
         tabla.clear();
 
-        console.log("Respuesta del servidor:", data); // ✅ Depuración
+        console.log("Respuesta del servidor:", data);
 
         if (data.length) {
           data.forEach(item => {
@@ -251,7 +306,6 @@ $(document).ready(function() {
 
         tabla.draw();
 
-        // 💾 Guardar en localStorage con los nombres correctos
         localStorage.setItem('resultadosData', JSON.stringify(data));
         localStorage.setItem('resultadosFiltros', JSON.stringify({
           documento: documento,
@@ -269,7 +323,6 @@ $(document).ready(function() {
     let tabla = $('#dataTable2').DataTable();
     tabla.clear().draw();
 
-    // 🗑️ Borrar localStorage
     localStorage.removeItem('resultadosData');
     localStorage.removeItem('resultadosFiltros');
   });
@@ -312,6 +365,5 @@ $(document).ready(function() {
   }
 });
 </script>
-
 
 <?= $this->endSection() ?>

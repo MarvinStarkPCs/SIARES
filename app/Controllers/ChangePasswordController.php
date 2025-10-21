@@ -7,59 +7,69 @@ use CodeIgniter\Log\Logger;
 
 class ChangePasswordController extends BaseController
 {
-    // Load the initial view for the change password form
+    // Cargar la vista inicial del formulario de cambio de contraseña
     public function index()
     {
+        log_message('info', 'Acceso a la vista de cambio de contraseña.');
         return view('security/ChangePassword/changepassword');
     }
 
-    // Method to handle the password change form
+    // Método para manejar el formulario de cambio de contraseña
     public function updatePassword()
     {
-        // Load the user model
+        // Cargar el modelo de usuario
         $userModel = new UserModel();
 
-        // Get the data submitted from the form
+        // Obtener los datos enviados por el formulario
         $currentPassword = $this->request->getPost('current_password');
         $newPassword = $this->request->getPost('new_password');
         $confirmPassword = $this->request->getPost('confirm_password');
         
-        log_message('info', 'Password change request received.');
+        log_message('info', 'Solicitud de cambio de contraseña recibida.');
         
-        // Verify that the new password and confirmation match
+        // Verificar que la nueva contraseña y la confirmación sean iguales
         if ($newPassword !== $confirmPassword) {
-            log_message('error', 'Passwords do not match.');
-            return redirect()->back()->with('error', 'Passwords do not match.');
+            log_message('error', 'Las contraseñas no coinciden.');
+            return redirect()->back()->with('error', 'Las contraseñas no coinciden');
         }
 
-        // Get the current user from the session
-        $user = $userModel->find(session()->get('id_user'));
+        // Obtener el usuario actual desde la sesión
+        $user = $userModel->find(session()->get('user_id'));
 
-        // Verify that the current password is correct
-        if (!password_verify($currentPassword, $user['password_hash'])) {
-            log_message('error', 'The current password is incorrect for user ID: ' . session()->get('user_id'));
-            return redirect()->back()->with('error', 'The current password is incorrect.');
+        // Verificar si la contraseña actual es correcta
+        if (!password_verify($currentPassword, $user['password'])) {
+            log_message('error', 'La contraseña actual es incorrecta para el usuario con ID: ' . session()->get('user_id'));
+            return redirect()->back()->with('error', 'La contraseña actual es incorrecta');
         }
 
-        // Validate the new password requirements
+        // Validar los requisitos de la nueva contraseña
         if (strlen($newPassword) < 8 || !preg_match('/[A-Z]/', $newPassword) || !preg_match('/\d/', $newPassword)) {
-            log_message('error', 'The new password does not meet the security requirements.');
-            return redirect()->back()->with('error', 'The new password must be at least 8 characters long, contain an uppercase letter, and a number.');
+            log_message('error', 'La nueva contraseña no cumple con los requisitos de seguridad.');
+            return redirect()->back()->with('error', 'La nueva contraseña debe tener al menos 8 caracteres, una mayúscula y un número');
         }
 
-        // Encrypt the new password
+        // Encriptar la nueva contraseña
         $newPasswordHash = password_hash($newPassword, PASSWORD_DEFAULT);
-        log_message('info', 'New password hashed for user ID: ' . session()->get('user_id'));
+        log_message('info', 'Nueva contraseña encriptada para el usuario con ID: ' . session()->get('user_id'));
 
-        // Update the password in the database
-        if ($userModel->update($user['id_user'], ['password_hash' => $newPasswordHash])) {
-            log_message('info', 'Password successfully updated for user ID: ' . session()->get('user_id'));
-            // Redirect with success message
-            return redirect()->to('/admin/changepassword')->with('success', 'Password successfully updated.');
-        } else {
-            log_message('error', 'Error updating password for user ID: ' . session()->get('user_id'));
-            return redirect()->back()->with('error', 'Error updating the password.');
+        // Actualizar la contraseña en la base de datos
+        if ($userModel->update($user['id'], ['password' => $newPasswordHash])) {
+    log_message('info', 'Contraseña actualizada con éxito para el usuario con ID: ' . session()->get('user_id'));
+    
+    // Redirigir según el rol
+    $roleId = session()->get('role_id');
+
+    if ($roleId == 1) {
+        return redirect()->to("/admin/changepassword")->with('success', 'Contraseña actualizada con éxito');
+    } elseif ($roleId == 2) {
+        return redirect()->to("/estudiante/changepassword")->with('success', 'Contraseña actualizada con éxito');
+    } else {
+        return redirect()->to("/docente/changepassword")->with('success', 'Contraseña actualizada con éxito');
+    }
+}
+ else {
+            log_message('error', 'Error al actualizar la contraseña para el usuario con ID: ' . session()->get('user_id'));
+            return redirect()->back()->with('error', 'Error al actualizar la contraseña');
         }
     }
 }
-

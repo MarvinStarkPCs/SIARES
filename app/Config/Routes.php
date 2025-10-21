@@ -17,6 +17,10 @@ $routes->post('recover/send-link', 'AuthController::sendRecoveryLink');
 $routes->get('reset-password/(:segment)', 'AuthController::resetPassword/$1');
 $routes->post('reset-password/confirm', 'AuthController::resetPasswordConfirm');
 
+$routes->get('form_register', 'UserManagementController::form_estudiante');
+$routes->post('estudiantes/guardar', 'UserManagementController::guardarFormRegister');
+$routes->post('usermanagement/showComboBox', 'UserManagementController::showComboBox');
+
 // ===============================
 // RUTAS PARA ADMINISTRADOR
 // ===============================
@@ -43,6 +47,9 @@ $routes->group('admin', ['filter' => 'auth'], function ($routes) {
 
     $routes->get('changepassword', 'ChangePasswordController::index');
     $routes->post('changepassword/update', 'ChangePasswordController::updatePassword');
+$routes->get('asignaciones', 'ReciclajeController::asignacion_academica');
+    $routes->post('asignaciones/buscar', 'UserManagementController::buscar');
+    $routes->post('asignaciones/guardarAsignaturas', 'UserManagementController::guardarAsignaturas');
 });
 
 // ===============================
@@ -57,6 +64,8 @@ $routes->group('estudiante', ['filter' => 'auth'], function ($routes) {
     $routes->post('changepassword/update', 'ChangePasswordController::update');
     $routes->get('mi-reporte', 'ReciclajeController::reporte_reciclaje');
     $routes->get('profile', 'ProfileController::index');
+        $routes->post('changepassword/update', 'ChangePasswordController::updatePassword');
+
 
 });
 
@@ -84,5 +93,7 @@ $routes->group('docente', ['filter' => 'auth'], function ($routes) {
     
     $routes->get('reciclaje/filtro', 'ReciclajeController::filtros'); // Registrar material reciclado
     $routes->post('reciclaje/results/buscar', 'ReciclajeController::filtrosBuscar'); // Registrar material reciclado
+        $routes->post('changepassword/update', 'ChangePasswordController::updatePassword');
+
 });
 

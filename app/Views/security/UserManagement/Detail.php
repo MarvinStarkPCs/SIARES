@@ -16,6 +16,10 @@
             <label>Nombre</label>
             <input type="text" class="form-control" value="<?= esc($user['name']) ?>" readonly>
         </div>
+         <div class="form-group col-md-6">
+            <label>Apellido</label>
+            <input type="text" class="form-control" value="<?= esc($user['last_name']) ?>" readonly>
+        </div>
         <div class="form-group col-md-6">
             <label>Documento</label>
             <input type="text" class="form-control" value="<?= esc($user['documento']) ?>" readonly>
@@ -34,25 +38,8 @@
         </div>
     </div>
 
-    <!-- Dirección -->
-    <div class="form-row">
-        <div class="form-group col-md-12">
-            <label>Dirección</label>
-            <input type="text" class="form-control" value="<?= esc($user['direccion']) ?>" readonly>
-        </div>
-    </div>
 
-    <!-- Género y Fecha de nacimiento -->
-    <div class="form-row">
-        <div class="form-group col-md-6">
-            <label>Género</label>
-            <input type="text" class="form-control" value="<?= esc($user['genero']) ?>" readonly>
-        </div>
-        <div class="form-group col-md-6">
-            <label>Fecha de Nacimiento</label>
-            <input type="date" class="form-control" value="<?= esc($user['fecha_nacimiento']) ?>" readonly>
-        </div>
-    </div>
+   
 
     <!-- Estado -->
     <div class="form-row">
